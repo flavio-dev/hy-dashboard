@@ -1,5 +1,10 @@
-import Image from "next/image";
+import FilesView from "@/components/organisms/FilesView";
 
 export default function Home() {
-  return <div>coucou</div>;
+  return (
+    <div>
+      <h1>coucou</h1>
+      <FilesView />
+    </div>
+  );
 }

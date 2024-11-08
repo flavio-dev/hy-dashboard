@@ -1,9 +1,11 @@
 export {};
 
 declare global {
-  type tPlayer = {
-    first_name: string;
-    last_name: string;
-    id: number;
+  export type TFile = {
+    id: string;
+    name: string;
+    type: "audio" | "document" | "spreadsheet";
+    size: number;
+    date: string;
   };
 }
