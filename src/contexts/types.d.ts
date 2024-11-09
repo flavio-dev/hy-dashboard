@@ -1,10 +1,12 @@
-export type TFileContext = {
+export type TAppContext = {
   files: TFile[];
-  setFiles: Dispatch<SetStateAction<TFile[]>>;
-  filteredFiles: TFile[];
-  setFilteredFiles: Dispatch<SetStateAction<TFile[]>>;
+  filterByText: string;
+  setFilterByText: React.SetStateAction;
+  showFavorite: boolean;
+  setShowFavorite: React.SetStateAction;
 };
 
-export type TFileContextProviderProps = {
+export type TAppContextProviderProps = {
   children: React.ReactNode;
+  files: TFile[];
 };

@@ -1,12 +1,19 @@
 import SearchBar from "@/components/molecules/SearchBar";
 import FilesView from "@/components/organisms/FilesView";
-import FilesProvider from "@/contexts/FilesContext";
+import AppProvider from "@/contexts/AppContext";
 
-export default function Home() {
+const fetchFiles = async () => {
+  const res = await fetch("http://localhost:3000/api/files");
+  const files: TFile[] = await res.json();
+  return files;
+};
+
+export default async function Home() {
+  const files: TFile[] = await fetchFiles();
   return (
-    <FilesProvider>
+    <AppProvider files={files}>
       <SearchBar />
       <FilesView />
-    </FilesProvider>
+    </AppProvider>
   );
 }

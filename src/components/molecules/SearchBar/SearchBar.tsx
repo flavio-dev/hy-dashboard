@@ -1,25 +1,16 @@
 "use client";
-import { useFilesContext } from "@/contexts/FilesContext";
-import { useState } from "react";
+import { useAppContext } from "@/contexts/AppContext";
 
 export const SearchBar = () => {
-  const [inputText, setInputText] = useState("");
-  const { files, setFilteredFiles } = useFilesContext();
+  const { filterByText, setFilterByText } = useAppContext();
 
-  const handleChangeInput = async (e: React.ChangeEvent<HTMLInputElement>) => {
-    setInputText(e.target.value);
-    const searchText = e.target.value.toLowerCase();
-    if (searchText === "") {
-      setFilteredFiles(files);
-    } else {
-      const filteredFiles = files.filter((file) =>
-        file.name.toLowerCase().includes(searchText)
-      );
-      setFilteredFiles(filteredFiles);
-    }
+  const handleFilterByText = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    setFilterByText(e.target.value);
   };
 
-  return <input type="text" onChange={handleChangeInput} value={inputText} />;
+  return (
+    <input type="text" onChange={handleFilterByText} value={filterByText} />
+  );
 };
 
 export default SearchBar;
