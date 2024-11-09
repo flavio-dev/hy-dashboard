@@ -1,16 +1,18 @@
 "use client";
 
+import { useFilesContext } from "@/contexts/FilesContext";
 import formatDate from "@/helpers/formatDate";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 
 const FilesView = () => {
-  const [files, setFiles] = useState<TFile[]>([]);
+  const { filteredFiles, setFilteredFiles, setFiles } = useFilesContext();
 
   useEffect(() => {
     const fetchFiles = async () => {
       const res = await fetch("/api/files");
       const files: TFile[] = await res.json();
       setFiles(files);
+      setFilteredFiles(files);
     };
 
     fetchFiles();
@@ -18,7 +20,7 @@ const FilesView = () => {
 
   return (
     <div>
-      {files.map((file) => {
+      {filteredFiles.map((file: TFile) => {
         const date = formatDate(file.date);
         return (
           <li key={file.id}>

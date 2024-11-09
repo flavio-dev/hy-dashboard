@@ -1,10 +1,12 @@
+import SearchBar from "@/components/molecules/SearchBar";
 import FilesView from "@/components/organisms/FilesView";
+import FilesProvider from "@/contexts/FilesContext";
 
 export default function Home() {
   return (
-    <div>
-      <h1>coucou</h1>
+    <FilesProvider>
+      <SearchBar />
       <FilesView />
-    </div>
+    </FilesProvider>
   );
 }

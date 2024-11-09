@@ -7,5 +7,6 @@ declare global {
     type: "audio" | "document" | "spreadsheet";
     size: number;
     date: string;
+    favorite: boolean;
   };
 }
