@@ -1,8 +1,9 @@
 "use client";
 import { useAppContext } from "@/contexts/AppContext";
 import StarIcon from "../StarIcon";
+import { TSetFavouriteToggleProps } from "./type";
 
-export const SetFavouriteToggle = () => {
+export const SetFavouriteToggle = ({ fileId }: TSetFavouriteToggleProps) => {
   const { isFavorite, setIsFavorite } = useAppContext();
 
   const handleToggle = () => {
