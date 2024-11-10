@@ -1,12 +1,13 @@
 import React from "react";
 import AudioIcon from "@/components/atoms/AudioIcon";
 import { TFileLineProps } from "./type";
-import formatDate from "@/helpers/formatDate";
-import formatFileSize from "@/helpers/formatSize";
+import { EFileType } from "@/types/file";
+import VideoIcon from "@/components/atoms/VideoIcon";
 import DocumentIcon from "@/components/atoms/DocumentIcon";
 import SpreadsheetIcon from "@/components/atoms/SpreadsheetIcon";
-import { EFileType } from "@/types/file";
 import SetFavouriteToggle from "@/components/atoms/SetFavouriteToggle";
+import formatFileSize from "@/helpers/formatSize";
+import formatDate from "@/helpers/formatDate";
 
 const FileLine = ({ file }: TFileLineProps) => {
   const date = formatDate(file.date);
@@ -18,6 +19,7 @@ const FileLine = ({ file }: TFileLineProps) => {
         {file.type === EFileType.AUDIO && <AudioIcon />}
         {file.type === EFileType.DOCUMENT && <DocumentIcon />}
         {file.type === EFileType.SPREADSHEET && <SpreadsheetIcon />}
+        {file.type === EFileType.VIDEO && <VideoIcon />}
       </div>
       <div className="flex-grow">{file.name}</div>
       <div className="w-24 text-left">{date}</div>

@@ -27,6 +27,14 @@ const generateFakeData = (): TFile[] => {
       date: "2024,12,20",
       isFavorite: true,
     },
+    {
+      id: "4",
+      name: "zoom_rec_20240520",
+      type: EFileType.VIDEO,
+      size: 200078,
+      date: "2024,05,20",
+      isFavorite: true,
+    },
   ];
 
   return files;

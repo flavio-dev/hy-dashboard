@@ -2,12 +2,17 @@ export enum EFileType {
   AUDIO = "audio",
   DOCUMENT = "document",
   SPREADSHEET = "spreadsheet",
+  VIDEO = "video",
 }
 
 export type TFile = {
   id: string;
   name: string;
-  type: EFileType.AUDIO | EFileType.DOCUMENT | EFileType.SPREADSHEET;
+  type:
+    | EFileType.AUDIO
+    | EFileType.DOCUMENT
+    | EFileType.SPREADSHEET
+    | EFileType.VIDEO;
   size: number;
   date: string;
   isFavorite: boolean;

@@ -12,12 +12,16 @@ const FilesView = () => {
     const { files, filterByText, showFavorite } = state;
     const filteredFiles: TFileDictionary = {};
     Object.keys(files).map((key) => {
-      if (files[key].name.toLowerCase().includes(filterByText.toLowerCase())) {
-        filteredFiles[key] = files[key];
-      }
+      const fileNameContainsFilterText = files[key].name
+        .toLowerCase()
+        .includes(filterByText.toLowerCase());
 
-      if (showFavorite && !files[key].isFavorite) {
-        delete filteredFiles[key];
+      if (showFavorite) {
+        if (fileNameContainsFilterText && files[key].isFavorite) {
+          filteredFiles[key] = files[key];
+        }
+      } else if (fileNameContainsFilterText) {
+        filteredFiles[key] = files[key];
       }
     });
     setFilesToShow(filteredFiles);
