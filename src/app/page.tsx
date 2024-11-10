@@ -1,4 +1,4 @@
-import SearchBar from "@/components/molecules/SearchBar";
+import FilterBar from "@/components/molecules/FilterBar";
 import FilesView from "@/components/organisms/FilesView";
 import AppProvider from "@/contexts/AppContext";
 
@@ -12,7 +12,7 @@ export default async function Home() {
   const files: TFile[] = await fetchFiles();
   return (
     <AppProvider files={files}>
-      <SearchBar />
+      <FilterBar />
       <FilesView />
     </AppProvider>
   );

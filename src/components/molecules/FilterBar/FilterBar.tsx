@@ -3,11 +3,11 @@ import SearchBar from "@/components/atoms/SearchBar";
 
 export const FilterBar = () => {
   return (
-    <div>
+    <div className="flex items-center h-14">
       <SearchBar />
       <FavouriteToggle />
     </div>
   );
 };
 
-export default SearchBar;
+export default FilterBar;

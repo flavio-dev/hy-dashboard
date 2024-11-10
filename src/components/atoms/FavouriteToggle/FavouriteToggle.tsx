@@ -1,15 +1,20 @@
 "use client";
 import { useAppContext } from "@/contexts/AppContext";
+import StarIcon from "../StarIcon";
 
 export const FavouriteToggle = () => {
   const { showFavorite, setShowFavorite } = useAppContext();
 
-  const handleToggle = async (e: React.ChangeEvent<HTMLInputElement>) => {
-    setFilterByText(e.target.value);
+  const handleToggle = () => {
+    console.log("jcsdiojosdjcosdij showFavorite = ", showFavorite);
+    setShowFavorite(!showFavorite);
   };
 
   return (
-    <input type="text" onChange={handleFilterByText} value={filterByText} />
+    <div onClick={handleToggle} className="flex items-center cursor-pointer">
+      <label className="mr-2">Stared:</label>
+      <StarIcon showFavorite={showFavorite} />
+    </div>
   );
 };
 

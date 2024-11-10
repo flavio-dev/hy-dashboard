@@ -2,18 +2,23 @@
 @tailwind components;
 @tailwind utilities;
 
-/* :root {
+:root {
   --background: #ffffff;
   --foreground: #171717;
   --max-screen-width: 1240px;
   --screen-inner-width: 95%;
 }
 
-@media (prefers-color-scheme: dark) {
+/* @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
     --foreground: #ededed;
   }
+} */
+
+/* html.dark body {
+  color: var(--background); https://tailwindcss.com/docs/dark-mode
+  background: var(--foreground);
 } */
 
 html,
@@ -25,6 +30,8 @@ body {
   font-family: Arial, Helvetica, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  color: var(--foreground);
+  background: var(--background);
 }
 
 * {
