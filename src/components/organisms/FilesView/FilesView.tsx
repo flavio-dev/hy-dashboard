@@ -5,7 +5,8 @@ import { TFile, TFileDictionary } from "@/types/file";
 import { useEffect, useState } from "react";
 
 const FilesView = () => {
-  const { files, filterByText, showFavorite } = useAppContext();
+  const { state } = useAppContext();
+  const { files, filterByText } = state;
   const [filesToShow, setFilesToShow] = useState(files);
 
   useEffect(() => {

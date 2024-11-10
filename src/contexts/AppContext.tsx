@@ -1,7 +1,29 @@
 "use client";
-import { createContext, useContext, useState } from "react";
-import { TAppContext, TAppContextProviderProps } from "./types";
+import { createContext, useContext, useReducer } from "react";
+import {
+  TAction,
+  TAppContext,
+  TAppContextProviderProps,
+  TState,
+} from "./types";
+import { EAction } from "./enums";
 import { TFileDictionary } from "@/types/file";
+
+const appReducer = (state: TState, action: TAction): TState => {
+  switch (action.type) {
+    case EAction.SET_IS_FAVOURITE:
+      state.files[action.fileId].isFavorite =
+        !state.files[action.fileId].isFavorite;
+      return { ...state };
+    case EAction.SET_FILTERED_TEXT:
+      return { ...state, filterByText: action.value };
+    case EAction.SET_SHOW_FAVOURITE:
+      const newShowFavorite = !state.showFavorite;
+      return { ...state, showFavorite: newShowFavorite };
+    default:
+      return state;
+  }
+};
 
 export const AppContext = createContext<TAppContext | null>(null);
 
@@ -13,20 +35,17 @@ const AppProvider = ({ children, files }: TAppContextProviderProps) => {
     filesMap[currFile.id] = currFile;
   }
 
-  const [filterByText, setFilterByText] = useState("");
-  const [showFavorite, setShowFavorite] = useState(false);
-  const [isFavorite, setIsFavorite] = useState(false);
+  const [state, dispatch] = useReducer(appReducer, {
+    files: filesMap,
+    filterByText: "",
+    showFavorite: false,
+  });
 
   return (
     <AppContext.Provider
       value={{
-        files: filesMap,
-        filterByText,
-        setFilterByText,
-        showFavorite,
-        setShowFavorite,
-        isFavorite,
-        setIsFavorite,
+        state,
+        dispatch,
       }}
     >
       {children}

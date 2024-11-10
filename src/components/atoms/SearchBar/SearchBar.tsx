@@ -1,11 +1,13 @@
 "use client";
 import { useAppContext } from "@/contexts/AppContext";
+import { EAction } from "@/contexts/enums";
 
 export const SearchBar = () => {
-  const { filterByText, setFilterByText } = useAppContext();
+  const { state, dispatch } = useAppContext();
+  const filterByText = state.filterByText;
 
   const handleFilterByText = async (e: React.ChangeEvent<HTMLInputElement>) => {
-    setFilterByText(e.target.value);
+    dispatch({ type: EAction.SET_FILTERED_TEXT, value: e.target.value });
   };
 
   return (
