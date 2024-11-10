@@ -1,10 +1,10 @@
 import React from "react";
-import AudioIcon from "@/components/atoms/AudioIcon";
 import { TFileLineProps } from "./type";
 import { EFileType } from "@/types/file";
-import VideoIcon from "@/components/atoms/VideoIcon";
-import DocumentIcon from "@/components/atoms/DocumentIcon";
-import SpreadsheetIcon from "@/components/atoms/SpreadsheetIcon";
+import AudioIcon from "@/components/atoms/icons/AudioIcon";
+import VideoIcon from "@/components/atoms/icons/VideoIcon";
+import DocumentIcon from "@/components/atoms/icons/DocumentIcon";
+import SpreadsheetIcon from "@/components/atoms/icons/SpreadsheetIcon";
 import SetFavouriteToggle from "@/components/atoms/SetFavouriteToggle";
 import formatFileSize from "@/helpers/formatSize";
 import formatDate from "@/helpers/formatDate";

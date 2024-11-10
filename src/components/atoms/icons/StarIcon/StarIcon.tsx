@@ -1,6 +1,6 @@
-import { TStarIconProps } from "./type";
+import { TIconDefaultProps } from "../type";
 
-export const StarIcon = ({ isSelected }: TStarIconProps) => (
+export const StarIcon = ({ isSelected }: TIconDefaultProps) => (
   <>
     {isSelected && (
       <svg

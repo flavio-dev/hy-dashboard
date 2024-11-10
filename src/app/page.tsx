@@ -1,7 +1,8 @@
+import AppProvider from "@/contexts/AppContext";
 import { TFile } from "@/types/file";
 import FilterBar from "@/components/molecules/FilterBar";
 import FilesView from "@/components/organisms/FilesView";
-import AppProvider from "@/contexts/AppContext";
+import FileDisplayToggle from "@/components/atoms/FileDisplayToggle";
 
 const fetchFiles = async () => {
   const res = await fetch("http://localhost:3000/api/files");
@@ -13,7 +14,10 @@ export default async function Home() {
   const files: TFile[] = await fetchFiles();
   return (
     <AppProvider files={files}>
-      <FilterBar />
+      <div className="flex justify-between">
+        <FilterBar />
+        <FileDisplayToggle />
+      </div>
       <FilesView />
     </AppProvider>
   );

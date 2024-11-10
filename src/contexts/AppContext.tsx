@@ -21,6 +21,8 @@ const appReducer = (state: TState, action: TAction): TState => {
     case EAction.SET_SHOW_FAVOURITE:
       const newShowFavorite = !state.showFavorite;
       return { ...state, showFavorite: newShowFavorite };
+    case EAction.SET_DISPLAY_FILES_VIEW:
+      return { ...state, displayFileView: action.value };
     default:
       return state;
   }
@@ -40,6 +42,7 @@ const AppProvider = ({ children, files }: TAppContextProviderProps) => {
     files: filesMap,
     filterByText: "",
     showFavorite: false,
+    displayFileView: "list",
   });
 
   return (

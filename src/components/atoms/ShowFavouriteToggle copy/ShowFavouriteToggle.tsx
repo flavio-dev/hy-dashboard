@@ -2,21 +2,21 @@
 import { useAppContext } from "@/contexts/AppContext";
 import { EAction } from "@/contexts/enums";
 import StarIcon from "../icons/StarIcon";
-import { TSetFavouriteToggleProps } from "./type";
 
-export const SetFavouriteToggle = ({ fileId }: TSetFavouriteToggleProps) => {
+export const ShowFavouriteToggle = () => {
   const { state, dispatch } = useAppContext();
-  const { files } = state;
+  const { showFavorite } = state;
 
   const handleToggle = () => {
-    dispatch({ type: EAction.SET_IS_FAVOURITE, fileId: fileId });
+    dispatch({ type: EAction.SET_SHOW_FAVOURITE });
   };
 
   return (
     <div onClick={handleToggle} className="flex items-center cursor-pointer">
-      <StarIcon isSelected={files[fileId].isFavorite} />
+      <label className="mr-2">Stared:</label>
+      <StarIcon isSelected={showFavorite} />
     </div>
   );
 };
 
-export default SetFavouriteToggle;
+export default ShowFavouriteToggle;

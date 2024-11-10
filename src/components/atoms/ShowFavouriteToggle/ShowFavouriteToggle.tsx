@@ -1,6 +1,6 @@
 "use client";
 import { useAppContext } from "@/contexts/AppContext";
-import StarIcon from "../StarIcon";
+import StarIcon from "../icons/StarIcon";
 import { EAction } from "@/contexts/enums";
 
 export const ShowFavouriteToggle = () => {
