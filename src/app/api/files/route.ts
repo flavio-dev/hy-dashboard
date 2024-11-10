@@ -9,7 +9,7 @@ const generateFakeData = (): TFile[] => {
       type: EFileType.AUDIO,
       size: 65000,
       date: "2023,11,19",
-      favorite: false,
+      isFavorite: false,
     },
     {
       id: "2",
@@ -17,7 +17,7 @@ const generateFakeData = (): TFile[] => {
       type: EFileType.DOCUMENT,
       size: 1024,
       date: "2022,02,20",
-      favorite: false,
+      isFavorite: false,
     },
     {
       id: "3",
@@ -25,7 +25,7 @@ const generateFakeData = (): TFile[] => {
       type: EFileType.SPREADSHEET,
       size: 2048,
       date: "2024,12,20",
-      favorite: true,
+      isFavorite: true,
     },
   ];
 

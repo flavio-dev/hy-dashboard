@@ -1,25 +1,29 @@
 "use client";
 import FileLine from "@/components/molecules/FileLine";
 import { useAppContext } from "@/contexts/AppContext";
+import { TFile, TFileDictionary } from "@/types/file";
 import { useEffect, useState } from "react";
 
 const FilesView = () => {
-  const { files, filterByText } = useAppContext();
+  const { files, filterByText, showFavorite } = useAppContext();
   const [filesToShow, setFilesToShow] = useState(files);
 
   useEffect(() => {
-    const filteredFiles = files.filter((file) =>
-      file.name.toLowerCase().includes(filterByText.toLowerCase())
-    );
-
+    const filteredFiles: TFileDictionary = {};
+    Object.keys(files).map((key) => {
+      if (files[key].name.toLowerCase().includes(filterByText.toLowerCase())) {
+        filteredFiles[key] = files[key];
+      }
+    });
     setFilesToShow(filteredFiles);
   }, [files, filterByText]);
 
   return (
     <div>
-      {filesToShow.map((file: TFile) => (
-        <FileLine key={file.id} file={file} />
-      ))}
+      {Object.keys(filesToShow).map((key: string) => {
+        const currFile: TFile = filesToShow[key];
+        return <FileLine key={currFile.id} file={currFile} />;
+      })}
     </div>
   );
 };

@@ -1,7 +1,7 @@
-import { TFile } from "@/types/file";
+import { TFile, TFileDictionary } from "@/types/file";
 
 export type TAppContext = {
-  files: TFile[];
+  files: TFileDictionary;
   filterByText: string;
   setFilterByText: React.SetStateAction;
   showFavorite: boolean;

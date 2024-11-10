@@ -10,5 +10,9 @@ export type TFile = {
   type: EFileType.AUDIO | EFileType.DOCUMENT | EFileType.SPREADSHEET;
   size: number;
   date: string;
-  favorite: boolean;
+  isFavorite: boolean;
+};
+
+export type TFileDictionary = {
+  [key: string]: TFile;
 };
