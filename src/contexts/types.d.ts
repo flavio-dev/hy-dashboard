@@ -1,3 +1,5 @@
+import { TFile } from "@/types/file";
+
 export type TAppContext = {
   files: TFile[];
   filterByText: string;

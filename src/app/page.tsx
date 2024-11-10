@@ -1,3 +1,4 @@
+import { TFile } from "@/types/file";
 import FilterBar from "@/components/molecules/FilterBar";
 import FilesView from "@/components/organisms/FilesView";
 import AppProvider from "@/contexts/AppContext";
