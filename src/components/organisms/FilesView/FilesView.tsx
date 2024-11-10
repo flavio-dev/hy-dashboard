@@ -1,6 +1,6 @@
 "use client";
+import FileLine from "@/components/molecules/FileLine";
 import { useAppContext } from "@/contexts/AppContext";
-import formatDate from "@/helpers/formatDate";
 import { useEffect, useState } from "react";
 
 const FilesView = () => {
@@ -17,14 +17,9 @@ const FilesView = () => {
 
   return (
     <div>
-      {filesToShow.map((file: TFile) => {
-        const date = formatDate(file.date);
-        return (
-          <li key={file.id}>
-            {file.name} - {date}
-          </li>
-        );
-      })}
+      {filesToShow.map((file: TFile) => (
+        <FileLine key={file.id} file={file} />
+      ))}
     </div>
   );
 };
