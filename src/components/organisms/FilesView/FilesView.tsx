@@ -6,18 +6,22 @@ import { useEffect, useState } from "react";
 
 const FilesView = () => {
   const { state } = useAppContext();
-  const { files, filterByText } = state;
-  const [filesToShow, setFilesToShow] = useState(files);
+  const [filesToShow, setFilesToShow] = useState(state.files);
 
   useEffect(() => {
+    const { files, filterByText, showFavorite } = state;
     const filteredFiles: TFileDictionary = {};
     Object.keys(files).map((key) => {
       if (files[key].name.toLowerCase().includes(filterByText.toLowerCase())) {
         filteredFiles[key] = files[key];
       }
+
+      if (showFavorite && !files[key].isFavorite) {
+        delete filteredFiles[key];
+      }
     });
     setFilesToShow(filteredFiles);
-  }, [files, filterByText]);
+  }, [state]);
 
   return (
     <div>

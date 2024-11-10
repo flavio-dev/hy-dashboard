@@ -12,9 +12,10 @@ import { TFileDictionary } from "@/types/file";
 const appReducer = (state: TState, action: TAction): TState => {
   switch (action.type) {
     case EAction.SET_IS_FAVOURITE:
-      state.files[action.fileId].isFavorite =
+      const { files: newFiles } = { ...state };
+      newFiles[action.fileId].isFavorite =
         !state.files[action.fileId].isFavorite;
-      return { ...state };
+      return { ...state, files: newFiles };
     case EAction.SET_FILTERED_TEXT:
       return { ...state, filterByText: action.value };
     case EAction.SET_SHOW_FAVOURITE:
