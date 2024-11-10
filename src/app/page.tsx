@@ -1,7 +1,7 @@
 import AppProvider from "@/contexts/AppContext";
 import { TFile } from "@/types/file";
 import FilterBar from "@/components/molecules/FilterBar";
-import FilesView from "@/components/organisms/FilesView";
+import FilesViewWrapper from "@/components/organisms/FilesViewWrapper";
 import FileDisplayToggle from "@/components/atoms/FileDisplayToggle";
 
 const fetchFiles = async () => {
@@ -18,7 +18,7 @@ export default async function Home() {
         <FilterBar />
         <FileDisplayToggle />
       </div>
-      <FilesView />
+      <FilesViewWrapper />
     </AppProvider>
   );
 }

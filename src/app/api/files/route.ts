@@ -21,7 +21,7 @@ const generateFakeData = (): TFile[] => {
     },
     {
       id: "3",
-      name: "report 2024.xlsx",
+      name: "report 2024_very long file name for testing purpose how it wraps.xlsx",
       type: EFileType.SPREADSHEET,
       size: 2048,
       date: "2024,12,20",
@@ -29,7 +29,7 @@ const generateFakeData = (): TFile[] => {
     },
     {
       id: "4",
-      name: "zoom_rec_20240520",
+      name: "zoom_rec_20240520.mp4",
       type: EFileType.VIDEO,
       size: 200078,
       date: "2024,05,20",

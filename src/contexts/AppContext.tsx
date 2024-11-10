@@ -42,7 +42,7 @@ const AppProvider = ({ children, files }: TAppContextProviderProps) => {
     files: filesMap,
     filterByText: "",
     showFavorite: false,
-    displayFileView: "list",
+    displayFileView: "grid",
   });
 
   return (

@@ -1,12 +1,14 @@
 "use client";
-import FileLine from "@/components/molecules/FileLine";
 import { useAppContext } from "@/contexts/AppContext";
-import { TFile, TFileDictionary } from "@/types/file";
+import FileViewList from "../FilesViewList";
+import FileViewGrid from "../FilesViewGrid";
+import { TFileDictionary } from "@/types/file";
 import { useEffect, useState } from "react";
 
-const FilesView = () => {
+const FilesViewWrapper = () => {
   const { state } = useAppContext();
   const [filesToShow, setFilesToShow] = useState(state.files);
+  const { displayFileView } = state;
 
   useEffect(() => {
     const { files, filterByText, showFavorite } = state;
@@ -28,13 +30,11 @@ const FilesView = () => {
   }, [state]);
 
   return (
-    <div>
-      {Object.keys(filesToShow).map((key: string) => {
-        const currFile: TFile = filesToShow[key];
-        return <FileLine key={currFile.id} file={currFile} />;
-      })}
-    </div>
+    <>
+      {displayFileView === "list" && <FileViewList files={filesToShow} />}
+      {displayFileView === "grid" && <FileViewGrid files={filesToShow} />}
+    </>
   );
 };
 
-export default FilesView;
+export default FilesViewWrapper;

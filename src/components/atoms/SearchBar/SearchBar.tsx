@@ -20,9 +20,8 @@ export const SearchBar = () => {
         id="search_input"
         value={filterByText}
         onChange={handleFilterByText}
-        className=""
+        className="border-black-300"
         placeholder="Start typing..."
-        required
       />
     </div>
   );
