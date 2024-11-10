@@ -7,6 +7,7 @@ export const AppContext = createContext<TAppContext | null>(null);
 const AppProvider = ({ children, files }: TAppContextProviderProps) => {
   const [filterByText, setFilterByText] = useState("");
   const [showFavorite, setShowFavorite] = useState(false);
+  const [isFavorite, setIsFavorite] = useState(false);
 
   return (
     <AppContext.Provider
@@ -16,6 +17,8 @@ const AppProvider = ({ children, files }: TAppContextProviderProps) => {
         setFilterByText,
         showFavorite,
         setShowFavorite,
+        isFavorite,
+        setIsFavorite,
       }}
     >
       {children}

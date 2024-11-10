@@ -1,8 +1,8 @@
 import { TStarIconProps } from "./type";
 
-export const StarIcon = ({ showFavorite }: TStarIconProps) => (
+export const StarIcon = ({ isSelected }: TStarIconProps) => (
   <>
-    {showFavorite && (
+    {isSelected && (
       <svg
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 24 24"
@@ -16,7 +16,7 @@ export const StarIcon = ({ showFavorite }: TStarIconProps) => (
         />
       </svg>
     )}
-    {!showFavorite && (
+    {!isSelected && (
       <svg
         xmlns="http://www.w3.org/2000/svg"
         fill="none"

@@ -6,6 +6,8 @@ export type TAppContext = {
   setFilterByText: React.SetStateAction;
   showFavorite: boolean;
   setShowFavorite: React.SetStateAction;
+  isFavorite: boolean;
+  setIsFavorite: React.SetStateAction;
 };
 
 export type TAppContextProviderProps = {
