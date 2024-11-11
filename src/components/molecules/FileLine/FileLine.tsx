@@ -23,7 +23,7 @@ const FileLine = ({ file }: TFileLineProps) => {
 
       <div className="flex-grow basis-0 truncate">{file.name}</div>
 
-      <div className="w-24 text-left">{date}</div>
+      <div className="w-32 text-left">{date}</div>
       <div className="w-24 text-left">{size}</div>
       <SetFavouriteToggle fileId={file.id} />
     </div>

@@ -3,6 +3,7 @@ import { TFile } from "@/types/file";
 import FilterBar from "@/components/molecules/FilterBar";
 import FilesViewWrapper from "@/components/organisms/FilesViewWrapper";
 import FileDisplayToggle from "@/components/atoms/FileDisplayToggle";
+import SortBar from "@/components/molecules/SortBar";
 
 const fetchFiles = async () => {
   const res = await fetch("http://localhost:3000/api/files");
@@ -18,6 +19,7 @@ export default async function Home() {
         <FilterBar />
         <FileDisplayToggle />
       </div>
+      <SortBar />
       <FilesViewWrapper />
     </AppProvider>
   );
