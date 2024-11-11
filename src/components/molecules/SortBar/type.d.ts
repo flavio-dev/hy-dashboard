@@ -1,10 +1,8 @@
 import { ESortBy, ESortDirection } from "./enums";
 
 export type TSortBarProps = {
-  setSortBy: Dispatch<
-    SetStateAction<ESortBy.DATE | ESortBy.NAME | ESortBy.SIZE | ESortBy.TYPE>
-  >;
-  setSortDirection: Dispatch<
-    SetStateAction<ESortDirection.DOWN | ESortDirection.UP>
-  >;
+  setSortBy: Dispatch<SetStateAction<ESortBy>>;
+  setSortDirection: Dispatch<SetStateAction<ESortDirection>>;
+  sortBy: ESortBy | null;
+  sortDirection: ESortDirection | null;
 };

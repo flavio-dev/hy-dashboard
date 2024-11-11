@@ -25,6 +25,7 @@ export type TAction =
 
 export type TState = {
   files: TFileDictionary;
+  arrayFileIds: string[];
   filterByText: string;
   showFavorite: boolean;
   displayFileView: "list" | "grid";

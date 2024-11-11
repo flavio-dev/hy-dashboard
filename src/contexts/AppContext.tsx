@@ -32,14 +32,17 @@ export const AppContext = createContext<TAppContext | null>(null);
 
 const AppProvider = ({ children, files }: TAppContextProviderProps) => {
   const filesMap: TFileDictionary = {};
+  const arrayFileIds: string[] = [];
 
   for (let i = 0; i < files.length; i++) {
     const currFile = files[i];
     filesMap[currFile.id] = currFile;
+    arrayFileIds.push(currFile.id);
   }
 
   const [state, dispatch] = useReducer(appReducer, {
     files: filesMap,
+    arrayFileIds,
     filterByText: "",
     showFavorite: false,
     displayFileView: "list",

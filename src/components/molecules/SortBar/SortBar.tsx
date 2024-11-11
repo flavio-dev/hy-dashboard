@@ -1,26 +1,24 @@
-import { useRef } from "react";
 import { TSortBarProps } from "./type";
 import { ESortBy, ESortDirection } from "./enums";
 import ArrowUpDown from "@/components/atoms/icons/ArrowUpDown";
 import ArrowIcon from "@/components/atoms/icons/ArrowIcon";
 
-const SortBar = ({ setSortBy, setSortDirection }: TSortBarProps) => {
-  const currSortBy = useRef<ESortBy>();
-  const currSortDirection = useRef<ESortDirection>();
-
+const SortBar = ({
+  setSortBy,
+  setSortDirection,
+  sortBy: sortByFromProps,
+  sortDirection: sortDirectionFromProps,
+}: TSortBarProps) => {
   const handleSetSortingValues = (sortBy: ESortBy) => {
-    if (sortBy === currSortBy.current) {
+    if (sortBy === sortByFromProps) {
       const sortDirection =
-        currSortDirection.current === ESortDirection.DOWN
+        sortDirectionFromProps === ESortDirection.DOWN
           ? ESortDirection.UP
           : ESortDirection.DOWN;
       setSortDirection(sortDirection);
-      currSortDirection.current = sortDirection;
     } else {
       setSortBy(sortBy);
       setSortDirection(ESortDirection.DOWN);
-      currSortBy.current = sortBy;
-      currSortDirection.current = ESortDirection.DOWN;
     }
   };
 
@@ -30,10 +28,10 @@ const SortBar = ({ setSortBy, setSortDirection }: TSortBarProps) => {
         className="w-6 mr-2 cursor-pointer"
         onClick={() => handleSetSortingValues(ESortBy.TYPE)}
       >
-        {currSortBy.current && currSortBy.current === ESortBy.TYPE && (
-          <ArrowIcon direction={currSortDirection.current} />
+        {sortByFromProps && sortByFromProps === ESortBy.TYPE && (
+          <ArrowIcon direction={sortDirectionFromProps} />
         )}
-        {(!currSortBy.current || currSortBy.current !== ESortBy.TYPE) && (
+        {(!sortByFromProps || sortByFromProps !== ESortBy.TYPE) && (
           <ArrowUpDown />
         )}
       </div>
@@ -42,8 +40,8 @@ const SortBar = ({ setSortBy, setSortDirection }: TSortBarProps) => {
         onClick={() => handleSetSortingValues(ESortBy.NAME)}
       >
         <span>Name</span>
-        {currSortBy.current && currSortBy.current === ESortBy.NAME && (
-          <ArrowIcon direction={currSortDirection.current} />
+        {sortByFromProps && sortByFromProps === ESortBy.NAME && (
+          <ArrowIcon direction={sortDirectionFromProps} />
         )}
       </div>
       <div
@@ -51,8 +49,8 @@ const SortBar = ({ setSortBy, setSortDirection }: TSortBarProps) => {
         onClick={() => handleSetSortingValues(ESortBy.DATE)}
       >
         <span>Last Modified</span>
-        {currSortBy.current && currSortBy.current === ESortBy.DATE && (
-          <ArrowIcon direction={currSortDirection.current} />
+        {sortByFromProps && sortByFromProps === ESortBy.DATE && (
+          <ArrowIcon direction={sortDirectionFromProps} />
         )}
       </div>
       <div
@@ -60,8 +58,8 @@ const SortBar = ({ setSortBy, setSortDirection }: TSortBarProps) => {
         onClick={() => handleSetSortingValues(ESortBy.SIZE)}
       >
         <span>File size</span>
-        {currSortBy.current && currSortBy.current === ESortBy.SIZE && (
-          <ArrowIcon direction={currSortDirection.current} />
+        {sortByFromProps && sortByFromProps === ESortBy.SIZE && (
+          <ArrowIcon direction={sortDirectionFromProps} />
         )}
       </div>
       <div className="w-6" />

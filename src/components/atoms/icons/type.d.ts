@@ -5,5 +5,5 @@ export type TIconDefaultProps = {
 };
 
 export type TSortIconProps = {
-  direction?: ESortDirection.DOWN | ESortDirection.UP;
+  direction: ESortDirection | null;
 };

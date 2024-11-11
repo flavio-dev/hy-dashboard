@@ -2,10 +2,10 @@ import FileLine from "@/components/molecules/FileLine";
 import { TFile } from "@/types/file";
 import { TFilesViewListProps } from "./types";
 
-const FileViewList = ({ files }: TFilesViewListProps) => (
+const FileViewList = ({ fileIds, files }: TFilesViewListProps) => (
   <div>
-    {Object.keys(files).map((key: string) => {
-      const currFile: TFile = files[key];
+    {fileIds.map((id: string) => {
+      const currFile: TFile = files[id];
       return <FileLine key={currFile.id} file={currFile} />;
     })}
   </div>
