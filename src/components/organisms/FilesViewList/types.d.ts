@@ -1,5 +1,5 @@
 import { TFileDictionary } from "@/types/file";
 
-export type TFileViewListProps = {
+export type TFilesViewListProps = {
   files: TFileDictionary;
 };

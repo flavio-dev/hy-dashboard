@@ -1,8 +1,8 @@
 import FileLine from "@/components/molecules/FileLine";
 import { TFile } from "@/types/file";
-import { TFileViewListProps } from "./types";
+import { TFilesViewListProps } from "./types";
 
-const FileViewList = ({ files }: TFileViewListProps) => (
+const FileViewList = ({ files }: TFilesViewListProps) => (
   <div>
     {Object.keys(files).map((key: string) => {
       const currFile: TFile = files[key];

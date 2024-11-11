@@ -1,7 +1,9 @@
+import { ESortDirection } from "@/components/molecules/SortBar/enums";
+
 export type TIconDefaultProps = {
   isSelected: boolean;
 };
 
 export type TSortIconProps = {
-  direction?: "up" | "down";
+  direction?: ESortDirection.DOWN | ESortDirection.UP;
 };

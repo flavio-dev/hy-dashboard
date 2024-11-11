@@ -1,8 +1,9 @@
+import { ESortDirection } from "@/components/molecules/SortBar/enums";
 import { TSortIconProps } from "../type";
 
-export const ArrowDownIcon = ({ direction }: TSortIconProps) => (
+export const ArrowIcon = ({ direction }: TSortIconProps) => (
   <>
-    {direction === "up" && (
+    {direction === ESortDirection.UP && (
       <svg
         xmlns="http://www.w3.org/2000/svg"
         fill="none"
@@ -14,11 +15,11 @@ export const ArrowDownIcon = ({ direction }: TSortIconProps) => (
         <path
           strokeLinecap="round"
           strokeLinejoin="round"
-          d="M15.75 17.25 12 21m0 0-3.75-3.75M12 21V3"
+          d="M8.25 6.75 12 3m0 0 3.75 3.75M12 3v18"
         />
       </svg>
     )}
-    {direction === "down" && (
+    {direction === ESortDirection.DOWN && (
       <svg
         xmlns="http://www.w3.org/2000/svg"
         fill="none"
@@ -37,4 +38,4 @@ export const ArrowDownIcon = ({ direction }: TSortIconProps) => (
   </>
 );
 
-export default ArrowDownIcon;
+export default ArrowIcon;

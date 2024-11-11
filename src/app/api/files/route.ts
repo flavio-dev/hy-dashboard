@@ -35,6 +35,30 @@ const generateFakeData = (): TFile[] => {
       date: "2024,05,20",
       isFavorite: true,
     },
+    {
+      id: "5",
+      name: "Flavian Buteau - CV 2024.pdf",
+      type: EFileType.DOCUMENT,
+      size: 4321,
+      date: "2024,11,02",
+      isFavorite: false,
+    },
+    {
+      id: "6",
+      name: "Flavian Buteau - Cover Letter 2024.pdf",
+      type: EFileType.DOCUMENT,
+      size: 5321,
+      date: "2024,11,02",
+      isFavorite: false,
+    },
+    {
+      id: "7",
+      name: "tax return 2021.xlsx",
+      type: EFileType.SPREADSHEET,
+      size: 960,
+      date: "2021,12,31",
+      isFavorite: true,
+    },
   ];
 
   return files;

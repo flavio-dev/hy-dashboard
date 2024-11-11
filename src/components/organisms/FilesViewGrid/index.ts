@@ -1,3 +1,3 @@
-import FilesViewGrid from "./FileGridList";
+import FilesViewGrid from "./FilesGridList";
 
 export default FilesViewGrid;

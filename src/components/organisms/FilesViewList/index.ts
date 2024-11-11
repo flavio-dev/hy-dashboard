@@ -1,3 +1,3 @@
-import FilesViewList from "./FileViewList";
+import FilesViewList from "./FilesViewList";
 
 export default FilesViewList;

@@ -1,11 +1,15 @@
 "use client";
-import { useAppContext } from "@/contexts/AppContext";
-import FileViewList from "../FilesViewList";
-import FileViewGrid from "../FilesViewGrid";
-import { TFileDictionary } from "@/types/file";
 import { useEffect, useState } from "react";
+import { useAppContext } from "@/contexts/AppContext";
+import FilesViewList from "../FilesViewList";
+import FilesViewGrid from "../FilesViewGrid";
+import { TFileDictionary } from "@/types/file";
+import { TFilesViewWrapperProps } from "./type";
 
-const FilesViewWrapper = () => {
+const FilesViewWrapper = ({
+  sortBy,
+  sortDirection,
+}: TFilesViewWrapperProps) => {
   const { state } = useAppContext();
   const [filesToShow, setFilesToShow] = useState(state.files);
   const { displayFileView } = state;
@@ -29,10 +33,15 @@ const FilesViewWrapper = () => {
     setFilesToShow(filteredFiles);
   }, [state]);
 
+  useEffect(() => {
+    console.log("HELOSE IN the useeffect with sortBy = ", sortBy);
+    console.log("HELOSE IN the useeffect with sortDirecton = ", sortDirection);
+  }, [sortBy, sortDirection]);
+
   return (
     <>
-      {displayFileView === "list" && <FileViewList files={filesToShow} />}
-      {displayFileView === "grid" && <FileViewGrid files={filesToShow} />}
+      {displayFileView === "list" && <FilesViewList files={filesToShow} />}
+      {displayFileView === "grid" && <FilesViewGrid files={filesToShow} />}
     </>
   );
 };
