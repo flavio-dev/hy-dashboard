@@ -32,8 +32,27 @@ const SortDropDown = () => {
     }
   };
 
+  let buttonText = "";
+  switch (sortByFromContext) {
+    case ESortBy.TYPE:
+      buttonText = "Type of file";
+      break;
+    case ESortBy.NAME:
+      buttonText = "Name";
+      break;
+    case ESortBy.DATE:
+      buttonText = "Last modified";
+      break;
+    case ESortBy.SIZE:
+      buttonText = "Size";
+      break;
+    default:
+      buttonText = "Sorting by";
+      break;
+  }
+
   return (
-    <div className="flex justify-end border-b pb-4 pt-4">
+    <div className="flex items-center justify-end border-b pb-4 pt-4">
       <div
         className="w-6 mr-2 cursor-pointer"
         onClick={() => handleSetSortingValuesGridView()}
@@ -45,12 +64,16 @@ const SortDropDown = () => {
       </div>
       <Menu>
         <MenuButton className="rounded-lg border-none bg-black/5 py-1.5 px-3 data-[active]:outline-2 data-[active]:-outline-offset-2 data-[active]:outline-black data-[active]:outline-none">
-          Sorting by
+          {buttonText}
         </MenuButton>
-        <MenuItems anchor="bottom" className="bg-white w-max">
+        <MenuItems anchor="bottom" className="bg-white w-max rounded-lg">
           <MenuItem>
             <div
-              className="data-[focus]:bg-blue-100 data-[focus]:bg-black/5 cursor-pointer py-1.5 px-3"
+              className={
+                sortByFromContext === ESortBy.TYPE
+                  ? "bg-black/5 cursor-pointer py-1.5 px-3"
+                  : "data-[focus]:bg-black/5 cursor-pointer py-1.5 px-3"
+              }
               onClick={() => handleSelectionSortingByGridView(ESortBy.TYPE)}
             >
               Type of file
@@ -58,7 +81,11 @@ const SortDropDown = () => {
           </MenuItem>
           <MenuItem>
             <div
-              className="data-[focus]:bg-blue-100 data-[focus]:bg-black/5 cursor-pointer py-1.5 px-3"
+              className={
+                sortByFromContext === ESortBy.NAME
+                  ? "bg-black/5 cursor-pointer py-1.5 px-3"
+                  : "data-[focus]:bg-black/5 cursor-pointer py-1.5 px-3"
+              }
               onClick={() => handleSelectionSortingByGridView(ESortBy.NAME)}
             >
               Name
@@ -66,7 +93,11 @@ const SortDropDown = () => {
           </MenuItem>
           <MenuItem>
             <div
-              className="data-[focus]:bg-blue-100 data-[focus]:bg-black/5 cursor-pointer py-1.5 px-3"
+              className={
+                sortByFromContext === ESortBy.DATE
+                  ? "bg-black/5 cursor-pointer py-1.5 px-3"
+                  : "data-[focus]:bg-black/5 cursor-pointer py-1.5 px-3"
+              }
               onClick={() => handleSelectionSortingByGridView(ESortBy.DATE)}
             >
               Last modified
@@ -74,7 +105,11 @@ const SortDropDown = () => {
           </MenuItem>
           <MenuItem>
             <div
-              className="data-[focus]:bg-blue-100 data-[focus]:bg-black/5 cursor-pointer py-1.5 px-3"
+              className={
+                sortByFromContext === ESortBy.SIZE
+                  ? "bg-black/5 cursor-pointer py-1.5 px-3"
+                  : "data-[focus]:bg-black/5 cursor-pointer py-1.5 px-3"
+              }
               onClick={() => handleSelectionSortingByGridView(ESortBy.SIZE)}
             >
               Size
