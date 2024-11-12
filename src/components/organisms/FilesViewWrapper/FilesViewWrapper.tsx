@@ -1,10 +1,11 @@
 "use client";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useAppContext } from "@/contexts/AppContext";
 import FilesViewList from "../FilesViewList";
 import FilesViewGrid from "../FilesViewGrid";
 import { TFilesViewWrapperProps } from "./type";
 import { ESortBy, ESortDirection } from "@/components/molecules/SortBar/enums";
+import { EDisplayFileView } from "@/components/atoms/FileDisplayToggle/enums";
 
 const FilesViewWrapper = ({
   sortBy,
@@ -12,13 +13,24 @@ const FilesViewWrapper = ({
   clearSortingValues,
 }: TFilesViewWrapperProps) => {
   const { state } = useAppContext();
-  const { files } = state;
+  const { files, filterByText, showFavorite } = state;
   const [fileIdsToShow, setFileIdsToShow] = useState(state.arrayFileIds);
   const { displayFileView } = state;
+  const prevFilterByText = useRef<string>("");
+  const prevShowFavorite = useRef<boolean>(false);
 
   useEffect(() => {
-    clearSortingValues();
-    const { files, filterByText, showFavorite } = state;
+    console.log("filterByText - ", filterByText);
+    console.log("prevFilterByText.current - ", prevFilterByText.current);
+    if (
+      filterByText !== prevFilterByText.current ||
+      showFavorite !== prevShowFavorite.current
+    ) {
+      console.log("pppp do we enter here when changing to grid?");
+      clearSortingValues();
+      prevFilterByText.current = filterByText;
+      prevShowFavorite.current = showFavorite;
+    }
     const filteredFilesId: string[] = [];
     Object.keys(files).map((key) => {
       const fileNameContainsFilterText = files[key].name
@@ -34,9 +46,10 @@ const FilesViewWrapper = ({
       }
     });
     setFileIdsToShow(filteredFilesId);
-  }, [state]);
+  }, [files, filterByText, showFavorite]);
 
   useEffect(() => {
+    console.log("ssss do we enter here when changing to grid?");
     let sortedArrayOfFileIds: string[] = [];
     switch (sortBy) {
       case ESortBy.NAME:
@@ -86,12 +99,14 @@ const FilesViewWrapper = ({
     }
   }, [sortBy, sortDirection, setFileIdsToShow]);
 
+  console.log("fileIdsToShow = ", fileIdsToShow);
+
   return (
     <>
-      {displayFileView === "list" && (
+      {displayFileView === EDisplayFileView.LIST && (
         <FilesViewList files={files} fileIds={fileIdsToShow} />
       )}
-      {displayFileView === "grid" && (
+      {displayFileView === EDisplayFileView.GRID && (
         <FilesViewGrid files={files} fileIds={fileIdsToShow} />
       )}
     </>

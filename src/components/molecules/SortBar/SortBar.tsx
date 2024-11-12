@@ -26,7 +26,8 @@ const SortBar = ({
 
   return (
     <>
-      {displayFileView === EDisplayFileView.LIST && (
+      {(displayFileView === EDisplayFileView.LIST ||
+        displayFileView === EDisplayFileView.GRID) && (
         <div className="flex justify-between border-l border-r border-b pb-4 pt-4">
           <div
             className="w-6 mr-2 cursor-pointer"
