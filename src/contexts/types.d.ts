@@ -30,7 +30,6 @@ export type TAction =
 export type TState = {
   files: TFileDictionary;
   arrayFileIds: string[];
-  filteredArrayFileIds: string[];
   filterByText: string;
   showFavorite: boolean;
   displayFileView: EDisplayFileView;

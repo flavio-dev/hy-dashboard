@@ -18,7 +18,7 @@ const FilesViewWrapper = ({
     files,
     filterByText,
     showFavorite,
-    filteredArrayFileIds: fileIdsToShow,
+    arrayFileIds: fileIdsToShow,
   } = state;
   const { displayFileView } = state;
   const prevFilterByText = useRef<string>("");
@@ -29,7 +29,6 @@ const FilesViewWrapper = ({
       filterByText !== prevFilterByText.current ||
       showFavorite !== prevShowFavorite.current
     ) {
-      console.log("pppp do we enter here when changing to grid?");
       clearSortingValues();
       prevFilterByText.current = filterByText;
       prevShowFavorite.current = showFavorite;

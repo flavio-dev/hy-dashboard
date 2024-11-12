@@ -25,7 +25,7 @@ const appReducer = (state: TState, action: TAction): TState => {
     case EAction.SET_DISPLAY_FILES_VIEW:
       return { ...state, displayFileView: action.value };
     case EAction.SET_FILTERED_ARRAY_FILE_IDS:
-      return { ...state, filteredArrayFileIds: action.value };
+      return { ...state, arrayFileIds: action.value };
     default:
       return state;
   }
@@ -36,19 +36,16 @@ export const AppContext = createContext<TAppContext | null>(null);
 const AppProvider = ({ children, files }: TAppContextProviderProps) => {
   const filesMap: TFileDictionary = {};
   const arrayFileIds: string[] = [];
-  const filteredArrayFileIds: string[] = [];
 
   for (let i = 0; i < files.length; i++) {
     const currFile = files[i];
     filesMap[currFile.id] = currFile;
     arrayFileIds.push(currFile.id);
-    filteredArrayFileIds.push(currFile.id);
   }
 
   const [state, dispatch] = useReducer(appReducer, {
     files: filesMap,
     arrayFileIds,
-    filteredArrayFileIds,
     filterByText: "",
     showFavorite: false,
     displayFileView: EDisplayFileView.LIST,
