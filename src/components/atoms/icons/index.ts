@@ -1,0 +1,10 @@
+export { default as ArrowIcon } from "./ArrowIcon";
+export { default as ArrowUpDown } from "./ArrowUpDown";
+export { default as AudioIcon } from "./AudioIcon";
+export { default as DocumentIcon } from "./DocumentIcon";
+export { default as GridIcon } from "./GridIcon";
+export { default as ListIcon } from "./ListIcon";
+export { default as SpreadsheetIcon } from "./SpreadsheetIcon";
+export { default as StarIcon } from "./StarIcon";
+export { default as ThreeBarsIcon } from "./ThreeBarsIcon";
+export { default as VideoIcon } from "./VideoIcon";

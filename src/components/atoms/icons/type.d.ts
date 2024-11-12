@@ -1,4 +1,4 @@
-import { ESortDirection } from "@/components/molecules/SortBar/enums";
+import { ESortDirection } from "@/contexts/SortingContext/enums";
 
 export type TIconDefaultProps = {
   isSelected: boolean;

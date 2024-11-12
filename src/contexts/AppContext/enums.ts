@@ -5,3 +5,8 @@ export enum EAction {
   SET_DISPLAY_FILES_VIEW = "SET_DISPLAY_FILES_VIEW",
   SET_FILTERED_ARRAY_FILE_IDS = "SET_FILTERED_ARRAY_FILE_IDS",
 }
+
+export enum EDisplayFileView {
+  GRID = "grid",
+  LIST = "list",
+}

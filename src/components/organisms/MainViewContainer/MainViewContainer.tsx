@@ -1,8 +1,9 @@
 "use client";
 import { useState } from "react";
-import FilesViewWrapper from "@/components/organisms/FilesViewWrapper";
-import SortBar from "@/components/molecules/SortBar";
+import { SortingProvider } from "@/contexts/SortingContext";
 import { useAppContext } from "@/contexts/AppContext";
+import FilesViewWrapper from "@/components/organisms/FilesViewWrapper";
+import SortByWrapper from "../SortBarWrapper";
 
 const MainViewContainer = () => {
   const [sortBy, setSortBy] = useState(null);
@@ -16,13 +17,14 @@ const MainViewContainer = () => {
   };
   return (
     <>
-      <SortBar
-        setSortBy={setSortBy}
-        setSortDirection={setSortDirection}
+      <SortingProvider
         sortBy={sortBy}
+        setSortBy={setSortBy}
         sortDirection={sortDirection}
-        displayFileView={displayFileView}
-      />
+        setSortDirection={setSortDirection}
+      >
+        <SortByWrapper displayFileView={displayFileView} />
+      </SortingProvider>
       <FilesViewWrapper
         sortBy={sortBy}
         sortDirection={sortDirection}

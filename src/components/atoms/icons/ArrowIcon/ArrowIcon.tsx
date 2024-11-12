@@ -1,4 +1,4 @@
-import { ESortDirection } from "@/components/molecules/SortBar/enums";
+import { ESortDirection } from "@/contexts/SortingContext/enums";
 import { TSortIconProps } from "../type";
 
 export const ArrowIcon = ({ direction }: TSortIconProps) => (

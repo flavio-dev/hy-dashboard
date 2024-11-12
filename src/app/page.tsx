@@ -1,4 +1,4 @@
-import AppProvider from "@/contexts/AppContext";
+import { AppProvider } from "@/contexts/AppContext";
 import { TFile } from "@/types/file";
 import FilterBar from "@/components/molecules/FilterBar";
 import FileDisplayToggle from "@/components/atoms/FileDisplayToggle";

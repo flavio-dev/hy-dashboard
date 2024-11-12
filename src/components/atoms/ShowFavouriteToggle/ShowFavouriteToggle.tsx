@@ -1,7 +1,7 @@
 "use client";
 import { useAppContext } from "@/contexts/AppContext";
 import StarIcon from "../icons/StarIcon";
-import { EAction } from "@/contexts/enums";
+import { EAction } from "@/contexts/AppContext/enums";
 
 export const ShowFavouriteToggle = () => {
   const { state, dispatch } = useAppContext();

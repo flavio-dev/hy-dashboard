@@ -1,6 +1,6 @@
 "use client";
 import { useAppContext } from "@/contexts/AppContext";
-import { EAction } from "@/contexts/enums";
+import { EAction } from "@/contexts/AppContext/enums";
 import { Field, Input, Label } from "@headlessui/react";
 import clsx from "clsx";
 

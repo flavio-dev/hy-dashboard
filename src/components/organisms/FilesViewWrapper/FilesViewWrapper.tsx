@@ -1,12 +1,11 @@
 "use client";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 import { useAppContext } from "@/contexts/AppContext";
+import { EAction, EDisplayFileView } from "@/contexts/AppContext/enums";
+import { ESortBy, ESortDirection } from "@/contexts/SortingContext/enums";
 import FilesViewList from "../FilesViewList";
 import FilesViewGrid from "../FilesViewGrid";
 import { TFilesViewWrapperProps } from "./type";
-import { ESortBy, ESortDirection } from "@/components/molecules/SortBar/enums";
-import { EDisplayFileView } from "@/components/atoms/FileDisplayToggle/enums";
-import { EAction } from "@/contexts/enums";
 
 const FilesViewWrapper = ({
   sortBy,

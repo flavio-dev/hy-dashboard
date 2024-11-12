@@ -1,6 +1,6 @@
 "use client";
 import { useAppContext } from "@/contexts/AppContext";
-import { EAction } from "@/contexts/enums";
+import { EAction } from "@/contexts/AppContext/enums";
 import StarIcon from "../icons/StarIcon";
 import { TSetFavouriteToggleProps } from "./type";
 

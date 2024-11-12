@@ -1,9 +1,8 @@
 "use client";
 import { useAppContext } from "@/contexts/AppContext";
-import { EDisplayFileView } from "./enums";
-import { EAction } from "@/contexts/enums";
 import ListIcon from "../icons/ListIcon";
 import GridIcon from "../icons/GridIcon";
+import { EAction, EDisplayFileView } from "@/contexts/AppContext/enums";
 
 export const FileDisplayToggle = () => {
   const { state, dispatch } = useAppContext();
