@@ -17,7 +17,7 @@ export const SearchBar = () => {
       <Label className="mr-2">Search for a file:</Label>
       <Input
         className={clsx(
-          "w-50 rounded-lg border-none bg-black/5 py-1.5 px-3 text-black",
+          "w-50 rounded-lg border-none bg-black/5 py-1.5 px-3",
           "focus:outline-none data-[focus]:outline-2 data-[focus]:-outline-offset-2 data-[focus]:outline-black"
         )}
         value={filterByText}

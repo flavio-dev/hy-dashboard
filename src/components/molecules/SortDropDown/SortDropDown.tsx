@@ -44,11 +44,13 @@ const SortDropDown = () => {
         {!sortByFromContext && <ArrowUpDown />}
       </div>
       <Menu>
-        <MenuButton>Sorting by</MenuButton>
-        <MenuItems anchor="bottom">
+        <MenuButton className="rounded-lg border-none bg-black/5 py-1.5 px-3 data-[active]:outline-2 data-[active]:-outline-offset-2 data-[active]:outline-black data-[active]:outline-none">
+          Sorting by
+        </MenuButton>
+        <MenuItems anchor="bottom" className="bg-white w-max">
           <MenuItem>
             <div
-              className="block data-[focus]:bg-black-400 cursor-pointer"
+              className="data-[focus]:bg-blue-100 data-[focus]:bg-black/5 cursor-pointer py-1.5 px-3"
               onClick={() => handleSelectionSortingByGridView(ESortBy.TYPE)}
             >
               Type of file
@@ -56,7 +58,7 @@ const SortDropDown = () => {
           </MenuItem>
           <MenuItem>
             <div
-              className="block data-[focus]:bg-black-400 cursor-pointer"
+              className="data-[focus]:bg-blue-100 data-[focus]:bg-black/5 cursor-pointer py-1.5 px-3"
               onClick={() => handleSelectionSortingByGridView(ESortBy.NAME)}
             >
               Name
@@ -64,7 +66,7 @@ const SortDropDown = () => {
           </MenuItem>
           <MenuItem>
             <div
-              className="block data-[focus]:bg-black-400 cursor-pointer"
+              className="data-[focus]:bg-blue-100 data-[focus]:bg-black/5 cursor-pointer py-1.5 px-3"
               onClick={() => handleSelectionSortingByGridView(ESortBy.DATE)}
             >
               Last modified
@@ -72,7 +74,7 @@ const SortDropDown = () => {
           </MenuItem>
           <MenuItem>
             <div
-              className="block data-[focus]:bg-black-400 cursor-pointer"
+              className="data-[focus]:bg-blue-100 data-[focus]:bg-black/5 cursor-pointer py-1.5 px-3"
               onClick={() => handleSelectionSortingByGridView(ESortBy.SIZE)}
             >
               Size
