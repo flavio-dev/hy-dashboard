@@ -13,7 +13,7 @@ const FileLine = ({ file }: TFileLineProps) => {
   const size = formatFileSize(file.size);
 
   return (
-    <div className="flex justify-between border-l border-r border-b pb-4 pt-4">
+    <div className="flex justify-between border-l border-r border-b pb-4 pt-4 hover:bg-black/5">
       <div className="w-6 mr-2">
         {file.type === EFileType.AUDIO && <AudioIcon />}
         {file.type === EFileType.DOCUMENT && <DocumentIcon />}

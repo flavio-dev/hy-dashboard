@@ -13,7 +13,7 @@ const FileSquare = ({ file }: TFileSquareProps) => {
   const size = formatFileSize(file.size);
 
   return (
-    <div className="rounded border-2 border-black">
+    <div className="rounded-lg border-2 border-black hover:bg-black/5">
       <div className="flex justify-end">
         <SetFavouriteToggle fileId={file.id} />
       </div>
