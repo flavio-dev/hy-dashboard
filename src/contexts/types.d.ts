@@ -21,11 +21,16 @@ export type TAction =
   | {
       type: EAction.SET_DISPLAY_FILES_VIEW;
       value: EDisplayFileView;
+    }
+  | {
+      type: EAction.SET_FILTERED_ARRAY_FILE_IDS;
+      value: string[];
     };
 
 export type TState = {
   files: TFileDictionary;
   arrayFileIds: string[];
+  filteredArrayFileIds: string[];
   filterByText: string;
   showFavorite: boolean;
   displayFileView: EDisplayFileView;

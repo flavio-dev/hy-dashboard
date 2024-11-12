@@ -6,22 +6,25 @@ import FilesViewGrid from "../FilesViewGrid";
 import { TFilesViewWrapperProps } from "./type";
 import { ESortBy, ESortDirection } from "@/components/molecules/SortBar/enums";
 import { EDisplayFileView } from "@/components/atoms/FileDisplayToggle/enums";
+import { EAction } from "@/contexts/enums";
 
 const FilesViewWrapper = ({
   sortBy,
   sortDirection,
   clearSortingValues,
 }: TFilesViewWrapperProps) => {
-  const { state } = useAppContext();
-  const { files, filterByText, showFavorite } = state;
-  const [fileIdsToShow, setFileIdsToShow] = useState(state.arrayFileIds);
+  const { state, dispatch } = useAppContext();
+  const {
+    files,
+    filterByText,
+    showFavorite,
+    filteredArrayFileIds: fileIdsToShow,
+  } = state;
   const { displayFileView } = state;
   const prevFilterByText = useRef<string>("");
   const prevShowFavorite = useRef<boolean>(false);
 
   useEffect(() => {
-    console.log("filterByText - ", filterByText);
-    console.log("prevFilterByText.current - ", prevFilterByText.current);
     if (
       filterByText !== prevFilterByText.current ||
       showFavorite !== prevShowFavorite.current
@@ -31,7 +34,7 @@ const FilesViewWrapper = ({
       prevFilterByText.current = filterByText;
       prevShowFavorite.current = showFavorite;
     }
-    const filteredFilesId: string[] = [];
+    const filteredFileIds: string[] = [];
     Object.keys(files).map((key) => {
       const fileNameContainsFilterText = files[key].name
         .toLowerCase()
@@ -39,17 +42,19 @@ const FilesViewWrapper = ({
 
       if (showFavorite) {
         if (fileNameContainsFilterText && files[key].isFavorite) {
-          filteredFilesId.push(key);
+          filteredFileIds.push(key);
         }
       } else if (fileNameContainsFilterText) {
-        filteredFilesId.push(key);
+        filteredFileIds.push(key);
       }
     });
-    setFileIdsToShow(filteredFilesId);
+    dispatch({
+      type: EAction.SET_FILTERED_ARRAY_FILE_IDS,
+      value: filteredFileIds,
+    });
   }, [files, filterByText, showFavorite]);
 
   useEffect(() => {
-    console.log("ssss do we enter here when changing to grid?");
     let sortedArrayOfFileIds: string[] = [];
     switch (sortBy) {
       case ESortBy.NAME:
@@ -95,11 +100,12 @@ const FilesViewWrapper = ({
     }
 
     if (sortBy) {
-      setFileIdsToShow([...sortedArrayOfFileIds]);
+      dispatch({
+        type: EAction.SET_FILTERED_ARRAY_FILE_IDS,
+        value: [...sortedArrayOfFileIds],
+      });
     }
-  }, [sortBy, sortDirection, setFileIdsToShow]);
-
-  console.log("fileIdsToShow = ", fileIdsToShow);
+  }, [sortBy, sortDirection]);
 
   return (
     <>
