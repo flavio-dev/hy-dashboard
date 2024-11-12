@@ -26,7 +26,7 @@ const SortBar = () => {
   return (
     <div className="flex justify-between border-l border-r border-b pb-4 pt-4">
       <div
-        className="w-6 mr-2 cursor-pointer"
+        className="w-6 mr-2 cursor-pointer py-1.5"
         onClick={() => handleSetSortingValuesListView(ESortBy.TYPE)}
       >
         {sortByFromContext && sortByFromContext === ESortBy.TYPE && (
@@ -37,7 +37,7 @@ const SortBar = () => {
         )}
       </div>
       <div
-        className="flex flex-grow basis-0 cursor-pointer"
+        className="flex flex-grow basis-0 cursor-pointer py-1.5"
         onClick={() => handleSetSortingValuesListView(ESortBy.NAME)}
       >
         <span>Name</span>
@@ -46,7 +46,7 @@ const SortBar = () => {
         )}
       </div>
       <div
-        className="flex w-32 text-left cursor-pointer"
+        className="flex w-32 text-left cursor-pointer py-1.5"
         onClick={() => handleSetSortingValuesListView(ESortBy.DATE)}
       >
         <span>Last Modified</span>
@@ -55,7 +55,7 @@ const SortBar = () => {
         )}
       </div>
       <div
-        className="flex w-24 text-left cursor-pointer"
+        className="flex w-24 text-left cursor-pointer py-1.5"
         onClick={() => handleSetSortingValuesListView(ESortBy.SIZE)}
       >
         <span>File size</span>
