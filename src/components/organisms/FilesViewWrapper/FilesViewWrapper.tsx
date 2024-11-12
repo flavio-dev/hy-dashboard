@@ -41,7 +41,7 @@ const FilesViewWrapper = ({
     switch (sortBy) {
       case ESortBy.NAME:
         sortedArrayOfFileIds = fileIdsToShow.sort((a, b) => {
-          if (sortDirection === ESortDirection.DOWN) {
+          if (sortDirection === ESortDirection.UP) {
             return files[a].name
               .toLowerCase()
               .localeCompare(files[b].name.toLowerCase());
