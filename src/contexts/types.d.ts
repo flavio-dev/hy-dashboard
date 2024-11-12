@@ -1,5 +1,5 @@
 import { TFile, TFileDictionary } from "@/types/file";
-import { EAction } from "./enums";
+import { EAction, EDisplayFileView } from "./enums";
 
 export type TAppContextProviderProps = {
   children: React.ReactNode;
@@ -20,7 +20,7 @@ export type TAction =
     }
   | {
       type: EAction.SET_DISPLAY_FILES_VIEW;
-      value: "list" | "grid";
+      value: EDisplayFileView;
     };
 
 export type TState = {
@@ -28,7 +28,7 @@ export type TState = {
   arrayFileIds: string[];
   filterByText: string;
   showFavorite: boolean;
-  displayFileView: "list" | "grid";
+  displayFileView: EDisplayFileView;
 };
 
 export type TAppContext = {

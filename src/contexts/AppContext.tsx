@@ -8,6 +8,7 @@ import {
 } from "./types";
 import { EAction } from "./enums";
 import { TFileDictionary } from "@/types/file";
+import { EDisplayFileView } from "@/components/atoms/FileDisplayToggle/enums";
 
 const appReducer = (state: TState, action: TAction): TState => {
   switch (action.type) {
@@ -45,7 +46,7 @@ const AppProvider = ({ children, files }: TAppContextProviderProps) => {
     arrayFileIds,
     filterByText: "",
     showFavorite: false,
-    displayFileView: "list",
+    displayFileView: EDisplayFileView.LIST,
   });
 
   return (

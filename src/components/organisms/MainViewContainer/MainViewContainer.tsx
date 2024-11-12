@@ -2,10 +2,13 @@
 import { useState } from "react";
 import FilesViewWrapper from "@/components/organisms/FilesViewWrapper";
 import SortBar from "@/components/molecules/SortBar";
+import { useAppContext } from "@/contexts/AppContext";
 
 const MainViewContainer = () => {
   const [sortBy, setSortBy] = useState(null);
   const [sortDirection, setSortDirection] = useState(null);
+  const { state } = useAppContext();
+  const { displayFileView } = state;
 
   const clearSortingValues = () => {
     setSortBy(null);
@@ -18,6 +21,7 @@ const MainViewContainer = () => {
         setSortDirection={setSortDirection}
         sortBy={sortBy}
         sortDirection={sortDirection}
+        displayFileView={displayFileView}
       />
       <FilesViewWrapper
         sortBy={sortBy}
