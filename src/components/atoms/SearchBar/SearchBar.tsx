@@ -14,7 +14,7 @@ export const SearchBar = () => {
 
   return (
     <Field className="flex items-center">
-      <Label className="mr-2">Search for a file:</Label>
+      <Label className="mr-2 hidden sm:block">Search for a file:</Label>
       <Input
         className={clsx(
           "w-50 rounded-lg border-none bg-black/5 py-1.5 px-3",

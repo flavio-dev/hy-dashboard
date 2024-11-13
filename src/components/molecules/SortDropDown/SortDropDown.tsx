@@ -69,11 +69,11 @@ const SortDropDown = () => {
         <MenuItems anchor="bottom" className="bg-white w-max rounded-lg">
           <MenuItem>
             <div
-              className={
+              className={` cursor-pointer py-1.5 px-3 ${
                 sortByFromContext === ESortBy.TYPE
-                  ? "bg-black/5 cursor-pointer py-1.5 px-3"
-                  : "data-[focus]:bg-black/5 cursor-pointer py-1.5 px-3"
-              }
+                  ? "bg-blue-100"
+                  : "data-[focus]:bg-black/5"
+              }`}
               onClick={() => handleSelectionSortingByGridView(ESortBy.TYPE)}
             >
               Type of file
@@ -81,11 +81,11 @@ const SortDropDown = () => {
           </MenuItem>
           <MenuItem>
             <div
-              className={
+              className={` cursor-pointer py-1.5 px-3 ${
                 sortByFromContext === ESortBy.NAME
-                  ? "bg-black/5 cursor-pointer py-1.5 px-3"
-                  : "data-[focus]:bg-black/5 cursor-pointer py-1.5 px-3"
-              }
+                  ? "bg-blue-100"
+                  : "data-[focus]:bg-black/5"
+              }`}
               onClick={() => handleSelectionSortingByGridView(ESortBy.NAME)}
             >
               Name
@@ -93,11 +93,11 @@ const SortDropDown = () => {
           </MenuItem>
           <MenuItem>
             <div
-              className={
+              className={` cursor-pointer py-1.5 px-3 ${
                 sortByFromContext === ESortBy.DATE
-                  ? "bg-black/5 cursor-pointer py-1.5 px-3"
-                  : "data-[focus]:bg-black/5 cursor-pointer py-1.5 px-3"
-              }
+                  ? "bg-blue-100"
+                  : "data-[focus]:bg-black/5"
+              }`}
               onClick={() => handleSelectionSortingByGridView(ESortBy.DATE)}
             >
               Last modified
@@ -105,11 +105,11 @@ const SortDropDown = () => {
           </MenuItem>
           <MenuItem>
             <div
-              className={
+              className={` cursor-pointer py-1.5 px-3 ${
                 sortByFromContext === ESortBy.SIZE
-                  ? "bg-black/5 cursor-pointer py-1.5 px-3"
-                  : "data-[focus]:bg-black/5 cursor-pointer py-1.5 px-3"
-              }
+                  ? "bg-blue-100"
+                  : "data-[focus]:bg-black/5"
+              }`}
               onClick={() => handleSelectionSortingByGridView(ESortBy.SIZE)}
             >
               Size
