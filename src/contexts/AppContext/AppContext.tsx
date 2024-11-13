@@ -47,7 +47,7 @@ const AppProvider = ({ children, files }: TAppContextProviderProps) => {
     arrayFileIds,
     filterByText: "",
     showFavorite: false,
-    displayFileView: EDisplayFileView.GRID,
+    displayFileView: EDisplayFileView.LIST,
   });
 
   return (
