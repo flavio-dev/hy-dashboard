@@ -11,14 +11,34 @@ import { TFileDictionary } from "@/types/file";
 
 const appReducer = (state: TState, action: TAction): TState => {
   switch (action.type) {
-    case EAction.SET_IS_FAVOURITE:
-      const { files: newFiles } = { ...state };
-      newFiles[action.fileId].isFavorite =
+    case EAction.TOGGLE_SET_FAVOURITE:
+      const { files: newFilesSF } = { ...state };
+      newFilesSF[action.fileId].isFavorite =
         !state.files[action.fileId].isFavorite;
-      return { ...state, files: newFiles };
+      return { ...state, files: newFilesSF };
+    case EAction.SET_MULTIPLE_FAVOURITE:
+      const { files: newFilesMF } = { ...state };
+      const filesFromAction = action.files;
+      for (const key in filesFromAction) {
+        newFilesMF[key].isFavorite = action.value;
+      }
+      return { ...state, files: newFilesMF };
+    case EAction.DELETE_MULTIPLE_FILES:
+      const { files: newFilesDF, arrayFileIds: newArrayFileIdsDF } = {
+        ...state,
+      };
+      const filesToDeleteFromAction = action.files;
+      for (const key in filesToDeleteFromAction) {
+        delete newFilesDF[key];
+        const index = newArrayFileIdsDF.indexOf(key);
+        if (index !== -1) {
+          newArrayFileIdsDF.splice(index, 1);
+        }
+      }
+      return { ...state, files: newFilesDF, arrayFileIds: newArrayFileIdsDF };
     case EAction.SET_FILTERED_TEXT:
       return { ...state, filterByText: action.value };
-    case EAction.SET_SHOW_FAVOURITE:
+    case EAction.TOGGLE_SHOW_FAVOURITE:
       const newShowFavorite = !state.showFavorite;
       return { ...state, showFavorite: newShowFavorite };
     case EAction.SET_DISPLAY_FILES_VIEW:

@@ -1,4 +1,8 @@
-import { TFile, TFileDictionary } from "@/types/file";
+import {
+  TFile,
+  TFileDictionary,
+  TFilesDisplayingDictionary,
+} from "@/types/file";
 import { EAction, EDisplayFileView } from "./enums";
 
 export type TAppContextProviderProps = {
@@ -8,15 +12,24 @@ export type TAppContextProviderProps = {
 
 export type TAction =
   | {
-      type: EAction.SET_IS_FAVOURITE;
+      type: EAction.TOGGLE_SET_FAVOURITE;
       fileId: string;
+    }
+  | {
+      type: EAction.SET_MULTIPLE_FAVOURITE;
+      files: TFilesDisplayingDictionary;
+      value: boolean;
+    }
+  | {
+      type: EAction.DELETE_MULTIPLE_FILES;
+      files: TFilesDisplayingDictionary;
     }
   | {
       type: EAction.SET_FILTERED_TEXT;
       value: string;
     }
   | {
-      type: EAction.SET_SHOW_FAVOURITE;
+      type: EAction.TOGGLE_SHOW_FAVOURITE;
     }
   | {
       type: EAction.SET_DISPLAY_FILES_VIEW;

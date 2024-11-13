@@ -9,7 +9,7 @@ export const SetFavouriteToggle = ({ fileId }: TSetFavouriteToggleProps) => {
   const { files } = state;
 
   const handleToggle = () => {
-    dispatch({ type: EAction.SET_IS_FAVOURITE, fileId: fileId });
+    dispatch({ type: EAction.TOGGLE_SET_FAVOURITE, fileId: fileId });
   };
 
   return (

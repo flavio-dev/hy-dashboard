@@ -8,7 +8,7 @@ export const ShowFavouriteToggle = () => {
   const { showFavorite } = state;
 
   const handleToggle = () => {
-    dispatch({ type: EAction.SET_SHOW_FAVOURITE });
+    dispatch({ type: EAction.TOGGLE_SHOW_FAVOURITE });
   };
 
   return (

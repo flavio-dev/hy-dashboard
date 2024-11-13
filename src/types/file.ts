@@ -21,3 +21,7 @@ export type TFile = {
 export type TFileDictionary = {
   [key: string]: TFile;
 };
+
+export type TFilesDisplayingDictionary = {
+  [key: string]: true;
+};

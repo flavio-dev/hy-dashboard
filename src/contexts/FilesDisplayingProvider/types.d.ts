@@ -1,6 +1,4 @@
-export type TFilesDisplayingDictionary = {
-  [key: string]: true;
-};
+import { TFilesDisplayingDictionary } from "@/types/file";
 
 export type TFilesDisplayingContextProviderProps = {
   children: React.ReactNode;

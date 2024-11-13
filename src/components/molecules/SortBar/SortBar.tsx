@@ -1,6 +1,6 @@
-import { ArrowIcon, ArrowUpDown } from "@/components/atoms/icons";
 import { ESortBy, ESortDirection } from "@/contexts/SortingContext/enums";
 import { useSortingContext } from "@/contexts/SortingContext";
+import { ArrowIcon, ArrowUpDown } from "@/components/atoms/icons";
 
 const SortBar = () => {
   const {

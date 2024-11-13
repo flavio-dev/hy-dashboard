@@ -6,6 +6,7 @@ import FilesViewWrapper from "@/components/organisms/FilesViewWrapper";
 import SortByWrapper from "../SortBarWrapper";
 import { FilesDisplayingProvider } from "@/contexts/FilesDisplayingProvider";
 import { StarIcon } from "@/components/atoms/icons";
+import { BulkActionBar } from "@/components/molecules/BulkActionBar";
 
 const MainViewContainer = () => {
   const [sortBy, setSortBy] = useState(null);
@@ -21,14 +22,9 @@ const MainViewContainer = () => {
 
   return (
     <div className="px-3">
-      <div className="flex items-center h-10">
+      <div className="h-10">
         {!!Object.entries(selectedFiles).length && (
-          <>
-            <span className="mr-2">
-              {Object.entries(selectedFiles).length} selected
-            </span>
-            <StarIcon isSelected={false} />
-          </>
+          <BulkActionBar selectedFiles={selectedFiles} />
         )}
       </div>
       <SortingProvider

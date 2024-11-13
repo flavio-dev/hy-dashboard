@@ -8,3 +8,4 @@ export { default as SpreadsheetIcon } from "./SpreadsheetIcon";
 export { default as StarIcon } from "./StarIcon";
 export { default as ThreeBarsIcon } from "./ThreeBarsIcon";
 export { default as VideoIcon } from "./VideoIcon";
+export { default as BinIcon } from "./BinIcon";
