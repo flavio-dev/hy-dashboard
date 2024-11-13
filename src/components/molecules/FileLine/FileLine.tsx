@@ -28,24 +28,28 @@ const FileLine = ({ file }: TFileLineProps) => {
 
   return (
     <div
-      className={`flex justify-between border-b py-4 transition-all ease-in-out duration-200 ${
+      className={`flex justify-between border-b transition-all ease-in-out duration-200 ${
         selectedFiles[fileId]
           ? "bg-blue-100 pl-3 pr-1"
           : "hover:bg-black/5 px-2"
       }`}
-      onClick={() => handleToggleSelectFile()}
     >
-      <div className="w-6 mr-2">
-        {file.type === EFileType.AUDIO && <AudioIcon />}
-        {file.type === EFileType.DOCUMENT && <DocumentIcon />}
-        {file.type === EFileType.SPREADSHEET && <SpreadsheetIcon />}
-        {file.type === EFileType.VIDEO && <VideoIcon />}
+      <div
+        className={"flex justify-between w-full py-4"}
+        onClick={() => handleToggleSelectFile()}
+      >
+        <div className="w-6 mr-2">
+          {file.type === EFileType.AUDIO && <AudioIcon />}
+          {file.type === EFileType.DOCUMENT && <DocumentIcon />}
+          {file.type === EFileType.SPREADSHEET && <SpreadsheetIcon />}
+          {file.type === EFileType.VIDEO && <VideoIcon />}
+        </div>
+
+        <div className="flex-grow basis-0 truncate">{file.name}</div>
+
+        <div className="w-32 text-left">{date}</div>
+        <div className="w-24 text-left">{size}</div>
       </div>
-
-      <div className="flex-grow basis-0 truncate">{file.name}</div>
-
-      <div className="w-32 text-left">{date}</div>
-      <div className="w-24 text-left">{size}</div>
       <SetFavouriteToggle fileId={fileId} />
     </div>
   );

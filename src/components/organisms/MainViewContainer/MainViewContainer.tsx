@@ -5,6 +5,7 @@ import { useAppContext } from "@/contexts/AppContext";
 import FilesViewWrapper from "@/components/organisms/FilesViewWrapper";
 import SortByWrapper from "../SortBarWrapper";
 import { FilesDisplayingProvider } from "@/contexts/FilesDisplayingProvider";
+import { StarIcon } from "@/components/atoms/icons";
 
 const MainViewContainer = () => {
   const [sortBy, setSortBy] = useState(null);
@@ -19,27 +20,25 @@ const MainViewContainer = () => {
   };
 
   return (
-    <div className="pl-3 pr-3">
-      {!!Object.entries(selectedFiles).length && (
-        <SortingProvider
-          sortBy={sortBy}
-          setSortBy={setSortBy}
-          sortDirection={sortDirection}
-          setSortDirection={setSortDirection}
-        >
-          <SortByWrapper displayFileView={displayFileView} />
-        </SortingProvider>
-      )}
-      {!Object.entries(selectedFiles).length && (
-        <SortingProvider
-          sortBy={sortBy}
-          setSortBy={setSortBy}
-          sortDirection={sortDirection}
-          setSortDirection={setSortDirection}
-        >
-          <SortByWrapper displayFileView={displayFileView} />
-        </SortingProvider>
-      )}
+    <div className="px-3">
+      <div className="flex items-center h-10">
+        {!!Object.entries(selectedFiles).length && (
+          <>
+            <span className="mr-2">
+              {Object.entries(selectedFiles).length} selected
+            </span>
+            <StarIcon isSelected={false} />
+          </>
+        )}
+      </div>
+      <SortingProvider
+        sortBy={sortBy}
+        setSortBy={setSortBy}
+        sortDirection={sortDirection}
+        setSortDirection={setSortDirection}
+      >
+        <SortByWrapper displayFileView={displayFileView} />
+      </SortingProvider>
       <FilesDisplayingProvider
         selectedFiles={selectedFiles}
         setSelectedFiles={setSelectedFiles}
