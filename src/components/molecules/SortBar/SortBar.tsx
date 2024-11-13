@@ -46,7 +46,7 @@ const SortBar = () => {
         )}
       </div>
       <div
-        className="flex w-32 text-left cursor-pointer py-1.5"
+        className="flex w-32 text-left cursor-pointer py-1.5 hidden sm:block"
         onClick={() => handleSetSortingValuesListView(ESortBy.DATE)}
       >
         <span>Last Modified</span>
@@ -55,7 +55,7 @@ const SortBar = () => {
         )}
       </div>
       <div
-        className="flex w-24 text-left cursor-pointer py-1.5"
+        className="flex w-24 text-left cursor-pointer py-1.5 hidden md:block"
         onClick={() => handleSetSortingValuesListView(ESortBy.SIZE)}
       >
         <span>File size</span>

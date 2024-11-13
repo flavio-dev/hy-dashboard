@@ -34,21 +34,31 @@ const FileLine = ({ file }: TFileLineProps) => {
           : "hover:bg-black/5 px-2"
       }`}
     >
+      <div className="w-6 mr-2 py-4" onClick={() => handleToggleSelectFile()}>
+        {file.type === EFileType.AUDIO && <AudioIcon />}
+        {file.type === EFileType.DOCUMENT && <DocumentIcon />}
+        {file.type === EFileType.SPREADSHEET && <SpreadsheetIcon />}
+        {file.type === EFileType.VIDEO && <VideoIcon />}
+      </div>
+
       <div
-        className={"flex justify-between w-full py-4"}
+        className="flex-grow basis-0 truncate py-4"
         onClick={() => handleToggleSelectFile()}
       >
-        <div className="w-6 mr-2">
-          {file.type === EFileType.AUDIO && <AudioIcon />}
-          {file.type === EFileType.DOCUMENT && <DocumentIcon />}
-          {file.type === EFileType.SPREADSHEET && <SpreadsheetIcon />}
-          {file.type === EFileType.VIDEO && <VideoIcon />}
-        </div>
+        {file.name}
+      </div>
 
-        <div className="flex-grow basis-0 truncate">{file.name}</div>
-
-        <div className="w-32 text-left">{date}</div>
-        <div className="w-24 text-left">{size}</div>
+      <div
+        className="w-32 text-left py-4 hidden sm:block"
+        onClick={() => handleToggleSelectFile()}
+      >
+        {date}
+      </div>
+      <div
+        className="w-24 text-left py-4 hidden md:block"
+        onClick={() => handleToggleSelectFile()}
+      >
+        {size}
       </div>
       <SetFavouriteToggle fileId={fileId} />
     </div>

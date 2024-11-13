@@ -1,10 +1,13 @@
 import { useRef } from "react";
 import { useAppContext } from "@/contexts/AppContext";
-import { BinIcon, StarIcon } from "@/components/atoms/icons";
+import { BinIcon, CrossIcon, StarIcon } from "@/components/atoms/icons";
 import { TBulkActionBarProps } from "./types";
 import { EAction } from "@/contexts/AppContext/enums";
 
-const BulkActionBar = ({ selectedFiles }: TBulkActionBarProps) => {
+const BulkActionBar = ({
+  selectedFiles,
+  clearSelectedFiles,
+}: TBulkActionBarProps) => {
   const toggleFavourite = useRef<boolean>(false);
   const { dispatch } = useAppContext();
 
@@ -32,8 +35,11 @@ const BulkActionBar = ({ selectedFiles }: TBulkActionBarProps) => {
       <span onClick={handleBulkSetFavouriteToggle} className="mr-2">
         <StarIcon isSelected={toggleFavourite.current} />
       </span>
-      <span onClick={handleBulkDelete}>
+      <span onClick={handleBulkDelete} className="mr-2">
         <BinIcon />
+      </span>
+      <span onClick={clearSelectedFiles}>
+        <CrossIcon />
       </span>
     </div>
   );

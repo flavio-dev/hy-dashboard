@@ -19,11 +19,18 @@ const MainViewContainer = () => {
     setSortDirection(null);
   };
 
+  const clearSelectedFiles = () => {
+    setSelectedFiles({});
+  };
+
   return (
     <div>
       <div className="h-10">
         {!!Object.entries(selectedFiles).length && (
-          <BulkActionBar selectedFiles={selectedFiles} />
+          <BulkActionBar
+            selectedFiles={selectedFiles}
+            clearSelectedFiles={clearSelectedFiles}
+          />
         )}
       </div>
       <SortingProvider
