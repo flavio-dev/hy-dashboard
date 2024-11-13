@@ -19,7 +19,7 @@ const MainViewContainer = () => {
   };
 
   return (
-    <>
+    <div className="pl-3 pr-3">
       {!!Object.entries(selectedFiles).length && (
         <SortingProvider
           sortBy={sortBy}
@@ -50,7 +50,7 @@ const MainViewContainer = () => {
           clearSortingValues={clearSortingValues}
         />
       </FilesDisplayingProvider>
-    </>
+    </div>
   );
 };
 
