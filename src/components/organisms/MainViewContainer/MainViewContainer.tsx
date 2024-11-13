@@ -20,7 +20,16 @@ const MainViewContainer = () => {
 
   return (
     <>
-      {Object.entries(selectedFiles).length && <p>kikou</p>}
+      {!!Object.entries(selectedFiles).length && (
+        <SortingProvider
+          sortBy={sortBy}
+          setSortBy={setSortBy}
+          sortDirection={sortDirection}
+          setSortDirection={setSortDirection}
+        >
+          <SortByWrapper displayFileView={displayFileView} />
+        </SortingProvider>
+      )}
       {!Object.entries(selectedFiles).length && (
         <SortingProvider
           sortBy={sortBy}

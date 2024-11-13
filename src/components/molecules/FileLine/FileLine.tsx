@@ -28,8 +28,10 @@ const FileLine = ({ file }: TFileLineProps) => {
 
   return (
     <div
-      className={`flex justify-between border-l border-r border-b pb-4 pt-4 ${
-        selectedFiles[fileId] ? "bg-blue-100" : "hover:bg-black/5"
+      className={`flex justify-between border-l border-r border-b pb-4 pt-4 transition-all ease-in-out duration-200 ${
+        selectedFiles[fileId]
+          ? "bg-blue-100 pl-5 pr-3"
+          : "hover:bg-black/5 pl-4 pr-4"
       }`}
       onClick={() => handleToggleSelectFile()}
     >

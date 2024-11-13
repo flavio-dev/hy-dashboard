@@ -37,7 +37,11 @@ const FileSquare = ({ file }: TFileSquareProps) => {
         <SetFavouriteToggle fileId={fileId} />
       </div>
       <div className="flex justify-center">
-        <div className="w-20">
+        <div
+          className={`w-20 transition-all ease-in-out duration-200 ${
+            selectedFiles[fileId] ? "p-0" : "p-1"
+          }`}
+        >
           {file.type === EFileType.AUDIO && <AudioIcon />}
           {file.type === EFileType.DOCUMENT && <DocumentIcon />}
           {file.type === EFileType.SPREADSHEET && <SpreadsheetIcon />}

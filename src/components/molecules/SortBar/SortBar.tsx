@@ -24,7 +24,7 @@ const SortBar = () => {
   };
 
   return (
-    <div className="flex justify-between border-l border-r border-b pb-4 pt-4">
+    <div className="flex justify-between border-l border-r border-b p-4">
       <div
         className="w-6 mr-2 cursor-pointer py-1.5"
         onClick={() => handleSetSortingValuesListView(ESortBy.TYPE)}
