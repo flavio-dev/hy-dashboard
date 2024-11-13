@@ -14,11 +14,13 @@ export default async function Home() {
   const files: TFile[] = await fetchFiles();
   return (
     <AppProvider files={files}>
-      <div className="flex justify-between">
-        <FilterBar />
-        <FileDisplayToggle />
+      <div className="px-3">
+        <div className="flex justify-between">
+          <FilterBar />
+          <FileDisplayToggle />
+        </div>
+        <MainViewContainer />
       </div>
-      <MainViewContainer />
     </AppProvider>
   );
 }

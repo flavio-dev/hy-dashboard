@@ -5,7 +5,6 @@ import { useAppContext } from "@/contexts/AppContext";
 import FilesViewWrapper from "@/components/organisms/FilesViewWrapper";
 import SortByWrapper from "../SortBarWrapper";
 import { FilesDisplayingProvider } from "@/contexts/FilesDisplayingProvider";
-import { StarIcon } from "@/components/atoms/icons";
 import { BulkActionBar } from "@/components/molecules/BulkActionBar";
 
 const MainViewContainer = () => {
@@ -21,7 +20,7 @@ const MainViewContainer = () => {
   };
 
   return (
-    <div className="px-3">
+    <div>
       <div className="h-10">
         {!!Object.entries(selectedFiles).length && (
           <BulkActionBar selectedFiles={selectedFiles} />

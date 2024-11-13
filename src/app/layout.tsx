@@ -28,6 +28,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
+        <header>hy - Chatbot Content Manager</header>
         {children}
       </body>
     </html>

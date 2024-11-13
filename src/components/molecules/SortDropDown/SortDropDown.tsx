@@ -63,7 +63,7 @@ const SortDropDown = () => {
         {!sortByFromContext && <ArrowUpDown />}
       </div>
       <Menu>
-        <MenuButton className="rounded-lg border-none bg-black/5 py-1.5 px-3 data-[active]:outline-2 data-[active]:-outline-offset-2 data-[active]:outline-black data-[active]:outline-none">
+        <MenuButton className="rounded-lg border-none bg-black/5 py-1.5 px-3 data-[active]:outline-2 data-[active]:-outline-offset-2 data-[active]:outline-black data-[active]:outline-none transition-all ease-in-out duration-200">
           {buttonText}
         </MenuButton>
         <MenuItems anchor="bottom" className="bg-white w-max rounded-lg">
