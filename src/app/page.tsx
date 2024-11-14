@@ -3,6 +3,7 @@ import { EFileType, TFile } from "@/types/file";
 import FilterBar from "@/components/molecules/FilterBar";
 import FileDisplayToggle from "@/components/atoms/FileDisplayToggle";
 import MainViewContainer from "@/components/organisms/MainViewContainer";
+import ScrollToTopContainer from "@/components/atoms/ScrollToTopContainer";
 
 const mapApiToFile = (apiResponse: any): TFile => {
   const typeMap: Record<string, EFileType> = {
@@ -38,6 +39,7 @@ export default async function Home() {
         </div>
         <MainViewContainer />
       </div>
+      <ScrollToTopContainer />
     </AppProvider>
   );
 }

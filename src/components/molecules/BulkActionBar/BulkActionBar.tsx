@@ -32,13 +32,16 @@ const BulkActionBar = ({
       <span className="mr-2">
         {Object.entries(selectedFiles).length} selected
       </span>
-      <span onClick={handleBulkSetFavouriteToggle} className="mr-2">
+      <span
+        onClick={handleBulkSetFavouriteToggle}
+        className="mr-2 cursor-pointer"
+      >
         <StarIcon isSelected={toggleFavourite.current} />
       </span>
-      <span onClick={handleBulkDelete} className="mr-2">
+      <span onClick={handleBulkDelete} className="mr-2 cursor-pointer">
         <BinIcon />
       </span>
-      <span onClick={clearSelectedFiles}>
+      <span onClick={clearSelectedFiles} className="cursor-pointer">
         <CrossIcon />
       </span>
     </div>
