@@ -25,7 +25,11 @@ const MainViewContainer = () => {
 
   return (
     <div>
-      <div className="h-10">
+      <div
+        className={`h-10 transition-all ease-in-out duration-200 ${
+          !!Object.entries(selectedFiles).length ? "opacity-1" : "opacity-0"
+        }`}
+      >
         {!!Object.entries(selectedFiles).length && (
           <BulkActionBar
             selectedFiles={selectedFiles}
