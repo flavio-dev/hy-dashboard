@@ -1,4 +1,4 @@
-import FileSquare from "@/components/molecules/FileSquare";
+import FileSquare from "@/components/molecules/File/FileSquare";
 import { TFile } from "@/types/file";
 import { TFilesViewGridProps } from "./types";
 

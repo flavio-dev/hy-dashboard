@@ -1,5 +1,5 @@
-import { useFilesDisplayingContext } from "@/contexts/FilesDisplayingProvider";
-import { TFileSquareProps } from "./type";
+import withToggleSelect from "@/components/hocs/withToggleSelect";
+import { TFileProps } from "../types";
 import { EFileType } from "@/types/file";
 import {
   AudioIcon,
@@ -8,24 +8,15 @@ import {
   SpreadsheetIcon,
 } from "@/components/atoms/icons";
 import SetFavouriteToggle from "@/components/atoms/SetFavouriteToggle";
-import formatFileSize from "@/helpers/formatSize";
-import formatDate from "@/helpers/formatDate";
 
-const FileSquare = ({ file }: TFileSquareProps) => {
-  const { selectedFiles, setSelectedFiles } = useFilesDisplayingContext();
-  const date = formatDate(file.date);
-  const size = formatFileSize(file.size);
-  const { id: fileId } = file;
-
-  const handleToggleSelectFile = () => {
-    if (selectedFiles[fileId]) {
-      delete selectedFiles[fileId];
-    } else {
-      selectedFiles[fileId] = true;
-    }
-    setSelectedFiles({ ...selectedFiles });
-  };
-
+const FileSquare = ({
+  file,
+  handleToggleSelectFile,
+  date,
+  size,
+  fileId,
+  selectedFiles,
+}: TFileProps) => {
   return (
     <div
       className={`rounded-lg border-2 border-[#e5e7eb] p-2 ${
@@ -53,10 +44,10 @@ const FileSquare = ({ file }: TFileSquareProps) => {
       </div>
       <div className="flex justify-between">
         <div className="w-24 text-left">{date}</div>
-        <div className="w-20 text-right">{size}</div>
+        <div className="w-24 text-right">{size}</div>
       </div>
     </div>
   );
 };
 
-export default FileSquare;
+export default withToggleSelect(FileSquare);

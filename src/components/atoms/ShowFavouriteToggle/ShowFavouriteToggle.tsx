@@ -13,7 +13,7 @@ export const ShowFavouriteToggle = () => {
 
   return (
     <div onClick={handleToggle} className="flex items-center cursor-pointer">
-      <label className="mr-2">Stared:</label>
+      <label className="mr-2">Only Starred:</label>
       <StarIcon isSelected={showFavorite} />
     </div>
   );

@@ -1,4 +1,4 @@
-import FileLine from "@/components/molecules/FileLine";
+import FileLine from "@/components/molecules/File/FileLine";
 import { TFile } from "@/types/file";
 import { TFilesViewListProps } from "./types";
 

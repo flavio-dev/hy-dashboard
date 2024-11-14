@@ -1,5 +1,5 @@
-import { useFilesDisplayingContext } from "@/contexts/FilesDisplayingProvider";
-import { TFileLineProps } from "./type";
+import withToggleSelect from "@/components/hocs/withToggleSelect";
+import { TFileProps } from "../types";
 import { EFileType } from "@/types/file";
 import {
   AudioIcon,
@@ -8,24 +8,15 @@ import {
   SpreadsheetIcon,
 } from "@/components/atoms/icons";
 import SetFavouriteToggle from "@/components/atoms/SetFavouriteToggle";
-import formatFileSize from "@/helpers/formatSize";
-import formatDate from "@/helpers/formatDate";
 
-const FileLine = ({ file }: TFileLineProps) => {
-  const { selectedFiles, setSelectedFiles } = useFilesDisplayingContext();
-  const date = formatDate(file.date);
-  const size = formatFileSize(file.size);
-  const { id: fileId } = file;
-
-  const handleToggleSelectFile = () => {
-    if (selectedFiles[fileId]) {
-      delete selectedFiles[fileId];
-    } else {
-      selectedFiles[fileId] = true;
-    }
-    setSelectedFiles({ ...selectedFiles });
-  };
-
+const FileLine = ({
+  file,
+  handleToggleSelectFile,
+  date,
+  size,
+  fileId,
+  selectedFiles,
+}: TFileProps) => {
   return (
     <div
       className={`flex justify-between border-b transition-all ease-in-out duration-200 ${
@@ -65,4 +56,4 @@ const FileLine = ({ file }: TFileLineProps) => {
   );
 };
 
-export default FileLine;
+export default withToggleSelect(FileLine);
