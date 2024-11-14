@@ -25,6 +25,7 @@ const BulkActionBar = ({
       type: EAction.DELETE_MULTIPLE_FILES,
       files: selectedFiles,
     });
+    clearSelectedFiles();
   };
 
   return (
