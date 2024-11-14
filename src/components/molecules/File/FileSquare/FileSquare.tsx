@@ -39,10 +39,8 @@ const FileSquare = ({
           {file.type === EFileType.VIDEO && <VideoIcon />}
         </div>
       </div>
-      <div>
-        <div className="truncate w-100%">{file.name}</div>
-      </div>
-      <div className="flex justify-between">
+      <div className="truncate w-100% border-b pb-1">{file.name}</div>
+      <div className="flex justify-between pt-1">
         <div className="w-24 text-left">{date}</div>
         <div className="w-24 text-right">{size}</div>
       </div>
