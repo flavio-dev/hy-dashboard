@@ -8,6 +8,10 @@ export default {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        geistSans: ["var(--font-geist-sans)", "sans-serif"],
+        mont: ["var(--font-mont)", "sans-serif"],
+      },
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",

@@ -4,7 +4,7 @@ export const DocumentIcon = () => (
     fill="none"
     viewBox="0 0 24 24"
     strokeWidth={1.5}
-    stroke="currentColor"
+    stroke="#4285F4"
   >
     <path
       strokeLinecap="round"

@@ -15,7 +15,7 @@ export default async function Home() {
   return (
     <AppProvider files={files}>
       <div className="px-3">
-        <div className="flex justify-between">
+        <div className="flex justify-between flex-wrap">
           <FilterBar />
           <FileDisplayToggle />
         </div>

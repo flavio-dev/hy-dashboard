@@ -24,7 +24,7 @@ const SortBar = () => {
   };
 
   return (
-    <div className="flex justify-between border-b py-4 px-2">
+    <div className="flex justify-between border-b border-black py-4 px-2">
       <div
         className="w-6 mr-2 cursor-pointer py-1.5"
         onClick={() => handleSetSortingValuesListView(ESortBy.TYPE)}
@@ -49,7 +49,7 @@ const SortBar = () => {
         className="flex w-32 text-left cursor-pointer py-1.5 hidden sm:block"
         onClick={() => handleSetSortingValuesListView(ESortBy.DATE)}
       >
-        <span>Last Modified</span>
+        <span>Last modified</span>
         {sortByFromContext && sortByFromContext === ESortBy.DATE && (
           <ArrowIcon direction={sortDirectionFromContext} />
         )}

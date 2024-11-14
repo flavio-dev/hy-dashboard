@@ -28,7 +28,7 @@ const FileSquare = ({ file }: TFileSquareProps) => {
 
   return (
     <div
-      className={`rounded-lg border-2 border-black p-2 ${
+      className={`rounded-lg border-2 border-[#e5e7eb] p-2 ${
         selectedFiles[fileId] ? "bg-blue-100" : "hover:bg-black/5"
       }`}
       onClick={() => handleToggleSelectFile()}

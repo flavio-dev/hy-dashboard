@@ -1,15 +1,16 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
+import Image from "next/image";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
   variable: "--font-geist-sans",
   weight: "100 900",
 });
-const geistMono = localFont({
-  src: "./fonts/GeistMonoVF.woff",
-  variable: "--font-geist-mono",
+const mont = localFont({
+  src: "./fonts/MontHeavy.otf",
+  variable: "--font-mont",
   weight: "100 900",
 });
 
@@ -26,10 +27,27 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${mont.variable} font-geistSans antialiased`}
       >
-        <header>hy - Chatbot Content Manager</header>
-        {children}
+        <header className="fixed top-0 left-0 w-full border-b-4 border-white bg-white">
+          <div className="flex justify-between py-2.5 sm:py-4 px-3 sm:px-4 border-b-4 border-black">
+            <div className="flex items-end">
+              <Image
+                className="dark:invert"
+                src="/logo-dark.svg"
+                alt="hy logo"
+                width={40}
+                height={40}
+                priority
+              />{" "}
+              <h1 className="text-2xl sm:text-3xl ml-4 font-mont">
+                Chatbot Content Manager
+              </h1>
+            </div>
+            <div>Theming</div>
+          </div>
+        </header>
+        <div className="pt-16 sm:pt-20">{children}</div>
       </body>
     </html>
   );

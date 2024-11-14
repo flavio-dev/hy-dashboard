@@ -42,7 +42,7 @@ const FileLine = ({ file }: TFileLineProps) => {
       </div>
 
       <div
-        className="flex-grow basis-0 truncate py-4"
+        className="flex-grow basis-0 truncate py-4 pr-2"
         onClick={() => handleToggleSelectFile()}
       >
         {file.name}
