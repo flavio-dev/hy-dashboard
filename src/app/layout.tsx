@@ -44,7 +44,7 @@ export default function RootLayout({
                 Chatbot Content Manager
               </h1>
             </div>
-            <div>Theming</div>
+            <div></div>
           </div>
         </header>
         <div className="pt-16 sm:pt-20">{children}</div>

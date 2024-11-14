@@ -8,11 +8,7 @@ export enum EFileType {
 export type TFile = {
   id: string;
   name: string;
-  type:
-    | EFileType.AUDIO
-    | EFileType.DOCUMENT
-    | EFileType.SPREADSHEET
-    | EFileType.VIDEO;
+  type: EFileType;
   size: number;
   date: string;
   isFavorite: boolean;
