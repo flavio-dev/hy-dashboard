@@ -72,7 +72,7 @@ const generateFakeData = (): any => {
 
   // GENERATING DUMMY DATA FOR BIGGER NUMBER OF FILES
 
-  const files = generateRandomFileData(1000);
+  const files = generateRandomFileData(500);
 
   return files;
 };
