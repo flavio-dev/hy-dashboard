@@ -14,7 +14,7 @@ export default async function Home() {
   const files: TFile[] = await fetchFiles();
   return (
     <AppProvider files={files}>
-      <div className="px-3">
+      <div className="px-3 sm:px-4 lg:px-6">
         <div className="flex justify-between flex-wrap">
           <FilterBar />
           <FileDisplayToggle />

@@ -30,7 +30,7 @@ export default function RootLayout({
         className={`${geistSans.variable} ${mont.variable} font-geistSans antialiased`}
       >
         <header className="fixed top-0 left-0 w-full border-b-4 border-white bg-white">
-          <div className="flex justify-between py-2.5 sm:py-4 px-3 sm:px-4 border-b-4 border-black">
+          <div className="flex justify-between py-2.5 sm:py-4 px-3 sm:px-4 lg:px-6 border-b-4 border-black">
             <div className="flex items-end">
               <Image
                 className="dark:invert"

@@ -31,7 +31,7 @@ const generateFakeData = (): TFile[] => {
       id: "4",
       name: "zoom_rec_20240520.mp4",
       type: EFileType.VIDEO,
-      size: 200078,
+      size: 2000023,
       date: "2024,05,20",
       isFavorite: true,
     },
@@ -57,6 +57,14 @@ const generateFakeData = (): TFile[] => {
       type: EFileType.SPREADSHEET,
       size: 960,
       date: "2021,12,31",
+      isFavorite: true,
+    },
+    {
+      id: "8",
+      name: "Introduction to the world of hy.mov",
+      type: EFileType.VIDEO,
+      size: 200078,
+      date: "2023,02,02",
       isFavorite: true,
     },
   ];
